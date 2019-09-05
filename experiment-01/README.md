@@ -18,4 +18,4 @@
 
 提交、重置，按钮。需声明正确的类型
 
-![注册截图](01.png)
+![注册截图](https://raw.githubusercontent.com/bwhyman/web-course/master/experiment-01/01.PNG)
