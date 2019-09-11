@@ -4,6 +4,19 @@
     <meta charset="UTF-8">
     <title>Insert title here</title>
     <style>
+        #link-button a {
+            /* 当显式声明超链接字体颜色时
+            未访问/访问过等所有字体样式被取消 */
+            color: white;
+            background: #f44336;
+            text-decoration: none;
+            padding: 8px 16px;
+        }
+
+        #link-button a:hover {
+            background: red;
+        }
+
         #nav li {
             display: inline;
         }
@@ -21,19 +34,30 @@
         #inline-block th, #inline-block td {
             border-bottom: 1px solid #ddd;
         }
-        #inline-block a:link, #inline-block a:visited {
+
+        #inline-block a {
+            display: inline-block;
             background-color: #f44336;
             color: white;
             padding: 14px 25px;
             margin: 5px;
-            text-align: center;
             text-decoration: none;
-            display: inline-block;
+            border-radius: 5px;
         }
 
+        #inline-block a:hover {
+            background: red;
+        }
     </style>
 </head>
 <body>
+
+<div id="link-button">
+    <p>按钮样式的超链接</p>
+    <a href="#">This is a link</a>
+</div>
+<br>
+<hr>
 <div id="nav">
     <p>Display a list of links as a horizontal menu:</p>
     <ul>
@@ -63,6 +87,5 @@
         </tr>
     </table>
 </div>
-
 </body>
 </html>
