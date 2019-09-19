@@ -1,5 +1,5 @@
-# Experiment-01
-### HTML基本标签实验
+# Experiment-02
+### CSS基本样式实验
 #### 需求+设计提示 
 实现  
 通过定义CSS属性，优化以上html内容  
