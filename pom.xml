@@ -12,6 +12,7 @@
         <module>web-examples</module>
         <module>experiment-01</module>
         <module>experiment-02</module>
+        <module>experiment-03</module>
     </modules>
 
 

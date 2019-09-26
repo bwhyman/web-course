@@ -118,6 +118,7 @@
 
 <script src="../resources/js/jquery-3.4.1.min.js"></script>
 <script>
+
     function p1() {
         // 几乎同时执行
         document.getElementById("p1").style.display = "none";
@@ -256,7 +257,7 @@
         });
         /*--------------  */
         // 模拟可选总数
-        let amount = 2;
+        const amount = 2;
         // 当任一项被点击时
         $("input[name=items]").click(() => {
             // 当前被选中项的个数
@@ -264,11 +265,8 @@
             // 当前未选中项对象
             let uncheckedItems = $("input[name=items]").not(":checked");
             // 当达到数量时，设置所有未选中项，为不可用状态
-            if (checkedCount >= amount) {
-                uncheckedItems.prop("disabled", true);
-            } else {
-                uncheckedItems.prop("disabled", false);
-            }
+            let dis = checkedCount >= amount ? true : false;
+            uncheckedItems.prop("disabled", dis);
         });
     });
 </script>
