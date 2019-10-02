@@ -106,13 +106,13 @@
 <br>
 <p>购买本产品的用户可免费获赠以下3项礼品中的2项</p>
 <label>
-    <input type="checkbox" name="items">1TB机械硬盘
+    <input type="checkbox" name="items">6TB机械硬盘
 </label>
 <label>
-    <input type="checkbox" name="items">256MB SSD固态硬盘
+    <input type="checkbox" name="items">512GB SSD固态硬盘
 </label>
 <label>
-    <input type="checkbox" name="items">4GB DDR4内存
+    <input type="checkbox" name="items">16GB DDR4内存
 </label>
 <hr>
 
@@ -243,34 +243,34 @@
 
         /* ------------Advanced Examles------------------ */
         $("#advitem").click(() => {
+            // 获取输入框对象，后续需继续使用，避免反复在DOM查询
+            let input = $("#exp");
             // 获取输入内容
-            let context = $("#exp").val();
+            let context = input.val();
             // 清空输入框
-            $("#exp").val("");
+            input.val("");
             // 创建jquery html元素对象
-            let $newItem = $("<li>" + context + "</li>");
-            $newItem.css("display", "none");
+            let newItem = $(`<li>${context}</li>`);
+            newItem.css("display", "none");
             // 追加至列表，但因css属性不显示
-            $("#adv_ol").append($newItem);
-            // 淡入
-            $newItem.fadeIn(2000);
+            $("#adv_ol").append(newItem);
+            // 淡入。修改元素display属性，并隐式迭代计算透明度
+            newItem.fadeIn(2000);
         });
         /*--------------  */
         // 模拟可选总数
         const amount = 2;
+        // 复选框组。元素是固定的，置于事件执行外,可避免每次执行事件时反复查询
+        const checkboxs = $("input[name=items]");
         // 当任一项被点击时
-        $("input[name=items]").click(() => {
-            // 当前被选中项的个数
-            let checkedCount = $("input[name=items]:checked").length;
-            // 当前未选中项对象
-            let uncheckedItems = $("input[name=items]").not(":checked");
-            // 当达到数量时，设置所有未选中项，为不可用状态
-            let dis = checkedCount >= amount ? true : false;
-            uncheckedItems.prop("disabled", dis);
+        checkboxs.click(() => {
+            // 过滤，获取复选框组中所有选中元素
+            // 当达到数量时，设置未选中项，为不可用状态
+            let dis = checkboxs.filter(":checked").length >= amount;
+            // 过滤，获取复选框组中所有未选中元素。变为不可用状态
+            checkboxs.not(":checked").prop("disabled", dis);
         });
     });
 </script>
-
 </body>
-
 </html>
