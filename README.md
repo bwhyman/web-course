@@ -1,5 +1,8 @@
 # Web Course
 ### update 2019.10.05
+JSP Basic Syntax Examples   
+JSP Include Directive Example
+### update 2019.10.05
 Servlet Filter Examples
 ### update 2019.10.04
 Servlet Examples
