@@ -4,7 +4,7 @@
 基于以上已实现的form布局，通过添加CSS代码实现需要的样式   
 参考：https://v3.bootcss.com/css/#forms   
 
-![result](screen-01.png "result")
+![result](https://raw.githubusercontent.com/bwhyman/web-course/master/homeworks/homework-01/screen-01.PNG)
 
 #### 原理与思路
 所有文本，密码的input元素，全局横向占用最大，圆角，内边距；   
