@@ -1,6 +1,8 @@
 # Web Course
+### update 2019.10.11
+作业01，form表单布局
 ### update 2019.10.08
-jQuery表单处理实验
+实验04，jQuery表单处理实验
 ### update 2019.10.05
 EL & JSTL Examples
 ### update 2019.10.05
@@ -11,13 +13,13 @@ Servlet Filter Examples
 ### update 2019.10.04
 Servlet Examples
 ### update 2019.09.26
-实验三，CSS基本布局实验
+实验03，CSS基本布局实验
 ### update 2019.09.24
 jQuery Examples
 ### update 2019.09.22
 JavaScript Basic Examples
 ### update 2019.09.19
-实验二，CSS基本样式实验    
+实验02，CSS基本样式实验    
 ### update 2019.09.15
 CSS Transforms Examples   
 Awesome SideBar With Shadow & Transition & Transform   
@@ -40,7 +42,7 @@ CSS Combinators Examples
 CSS Pseudo-classes Examples   
 CSS Form Examples
 ### update 2019.09.05
-实验一，HTML基本标签实验   
+实验01，HTML基本标签实验   
 ### update 2019.09.03
 CSS Element & Class & ID Selectors Examples   
 CSS File Examples   
