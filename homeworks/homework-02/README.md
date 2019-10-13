@@ -5,7 +5,7 @@
 网站测试图库：https://pravatar.cc/   
 网站提供多种尺寸风格的图片，可用于测试   
 
-![result](homeworks/homework-02/screen-01.PNG)
+![result](https://github.com/bwhyman/web-course/blob/master/homeworks/homework-02/screen-01.PNG)
 
 ### 原理与思路
 布局   
