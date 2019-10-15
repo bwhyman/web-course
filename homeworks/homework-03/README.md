@@ -2,7 +2,7 @@
 ### Google Material Icon fixed布局
 实现左侧固定的侧边栏导航，侧边栏中基于网络提供的Icon图标实现     
 Google Material Icon，是Google设计提供的一套免费开源的图标库   
-学习使用方法即国内镜像：http://micon.dxbtech.cn/   
+学习使用方法及国内镜像：http://micon.dxbtech.cn/   
 正确引入css后，通过文字，声明展示对应的图标   
 
 ![result](https://github.com/bwhyman/web-course/blob/master/homeworks/homework-03/screen-01.gif)
@@ -20,7 +20,7 @@ item容器中声明超链接，超链接内容为icon
 样式   
 全局box计算模式   
 全局弹性容器，即将导航与主内容容器横向并列   
-左导航容器，显示声明宽度，窗口高度，固定。即，当内容长度超过一屏可滚动时，左导航不动   
+左导航容器，显式声明宽度，窗口高度，固定。即，当内容长度超过一屏可滚动时，左导航不动   
 右侧主区域容器，占用除左导航外的最大
 - 由于左侧导航按固定布局，因此，在计算尺寸时不会计算。
 即，此时弹性容器计算尺寸时，内部仅有一个主容器。
