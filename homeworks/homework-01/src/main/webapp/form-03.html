@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .container {
+            width: 600px;
+            margin: 30px auto;
+            border: 1px solid red;
+            border-radius: 15px;
+        }
+        .container h2 {
+            padding: 10px;
+        }
+        .form-group {
+            position: relative;
+            padding: 15px;
+        }
+        .form-group input {
+            width: 100%;
+            border: none;
+            outline: none;
+            border-bottom: 1px solid black;
+            padding: 10px;
+            margin-bottom: 15px;
+        }
+        .form-group input:focus {
+            border-bottom: 1px solid blue;
+        }
+        /* pointer-events，元素重叠，或元素被透明元素遮挡，为遮挡元素添加属性，可使其指针事件无效 */
+        .form-group label {
+            position: absolute;
+            padding: 10px;
+            pointer-events: none;
+            top: 5px;
+            left: 0;
+            transition: 0.5s;
+        }
+        .form-group input:focus {
+            border-bottom: 1px solid blue;
+        }
+        /* 输入框获得焦点，输入框校验成功，input之后的全部label */
+        .form-group input:focus + label,
+        .form-group input:valid + label {
+            top: -10px;
+            color: seagreen;
+            font-size: 8px;
+            font-weight: bold;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <h2>登录</h2>
+    <form>
+        <div class="form-group">
+            <input type="text" required>
+            <label>学号*</label>
+        </div>
+        <div class="form-group">
+            <input type="password" required>
+            <label>密码*</label>
+        </div>
+    </form>
+</div>
+</body>
+</html>

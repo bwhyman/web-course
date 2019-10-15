@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+        }
+        nav {
+            position: fixed;
+            width: 130px;
+            height: 100vh;
+            border: 1px solid red;
+            background: #142467;
+        }
+
+        .main {
+            margin-left: 130px;
+            flex-grow: 1;
+            border: 1px solid red;
+            font-size: 60px;
+            text-align: justify;
+        }
+        .item {
+            text-align: center;
+            transition: transform 0.5s;
+        }
+        .item a {
+            padding: 15px;
+            display: block;
+        }
+        i.sidebar-item {
+            font-size: 60px;
+            color: white;
+        }
+        .item:hover {
+            transform: translateY(-10px);
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <div class="item">
+            <a href=""><i class="material-icons sidebar-item">access_alarm</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons sidebar-item">ac_unit</i></a>
+        </div>
+        <div class="item">
+            <a href=""><i class="material-icons sidebar-item">account_balance</i></a>
+        </div>
+    </nav>
+    <div class="main"><p>
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam aliquid architecto at dolore molestiae nam
+        optio quis velit voluptatem! Accusantium adipisci blanditiis error et fugiat hic pariatur. Architecto at eaque
+        et facere fugiat laboriosam necessitatibus nisi perferendis quos, repellat, ut vel? Facere illo in minima
+        molestiae nisi non repellat voluptate. Doloribus porro sit totam voluptate. Inventore non rem repellat rerum sed
+        tempore. Aliquam architecto, commodi corporis culpa delectus eaque exercitationem facere, magnam modi obcaecati
+        quod sit tenetur voluptates? Expedita iure modi non quos vero! Aliquam at consequatur hic impedit itaque labore
+        nihil voluptatem. Accusamus aliquid asperiores, cupiditate dignissimos in iusto laborum nostrum officia quas
+        quasi! Aperiam asperiores consequuntur ex explicabo minus molestias nihil, praesentium, quas qui recusandae
+        repellendus reprehenderit sapiente!</p>
+    </div>
+</div>
+</body>
+</html>
