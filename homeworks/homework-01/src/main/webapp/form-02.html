@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 容器 */
+        .main {
+            border: 1px solid red;
+            width: 800px;
+            padding: 15px;
+        }
+        /* 全局input样式，占用最大，取消浏览器默认框样式 */
+        input[type=text], input[type=password] {
+            width: 100%;
+            padding: 10px;
+            border-radius: 5px;
+            outline: none;
+        }
+        /* 包含label与输入域的容器，label与输入域元素居中对齐 */
+        .form-group {
+            display: flex;
+            padding: 5px;
+            align-items: center;
+        }
+        /* 文本右对齐 */
+        .form-label {
+            flex-basis: 20%;
+            text-align: right;
+            padding: 10px;
+        }
+        .form-input {
+            flex-basis: 80%;
+        }
+
+    </style>
+</head>
+<body>
+<div class="main">
+    <form>
+        <div class="form-group">
+            <label class="form-label">用户名</label>
+            <div class="form-input">
+                <input type="text">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">密码</label>
+            <div class="form-input">
+                <input type="password">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-label">性别</label>
+            <div class="form-input">
+                <input type="radio" name="sex">男
+                <input type="radio" name="sex">女
+            </div>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>
