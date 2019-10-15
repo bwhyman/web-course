@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        /* 左侧边栏容器宽度 */
+        aside {
+            width: 300px;
+            background: #f1f1f1;
+        }
+        /* 导航标题 */
+        .sidebar > h2 {
+            padding: 15px 20px;
+            background: #3185bf;
+            color: white;
+        }
+        /* 添加标题悬浮样式 */
+        .sidebar > h2:hover {
+            cursor: pointer;
+        }
+        /* 初始化时，将二级菜单隐藏，滑动时jquery自动修改display属性 */
+        .sidebar ul {
+            display: none;
+        }
+        /* 二级菜单样式 */
+        .sidebar li a {
+            display: block;
+            color: black;
+            text-decoration: none;
+            padding: 10px 20px;
+        }
+        /* 二级菜单悬浮样式 */
+        aside li a:hover {
+            font-weight: bold;
+            background-color: #555;
+            color: white;
+        }
+
+    </style>
+</head>
+<body>
+<aside>
+    <div class="sidebar">
+        <h2>云技术管理</h2>
+        <ul>
+            <li><a href="#">云服务器</a></li>
+            <li><a href="#">云数据库</a></li>
+            <li><a href="#">负载均衡</a></li>
+        </ul>
+    </div>
+    <div class="sidebar">
+        <h2>安全管理</h2>
+        <ul>
+            <li><a href="#">云盾控制台</a></li>
+            <li><a href="#">DDoS高防IP</a></li>
+            <li><a href="#">Web应用防火墙</a></li>
+            <li><a href="#">CA证书服务</a></li>
+        </ul>
+    </div>
+</aside>
+<script src="resources/js/jquery-3.4.1.min.js"></script>
+<script>
+    $(function () {
+        $(".sidebar>h2").click(function () {
+            // 被点击标题之后的ul元素，与标题平级
+            let ul = $(this).next("ul");
+            // 此二级导航，滑动切换
+            ul.slideToggle();
+            // 其他二级导航，排除当前导航，全部滑上
+            $(".sidebar>ul").not(ul).slideUp();
+        });
+    })
+</script>
+</body>
+</html>

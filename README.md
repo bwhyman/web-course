@@ -1,4 +1,14 @@
 # Web Course
+### update 2019.10.15
+Homework-04，浮动按钮
+Homework-01，code
+### update 2019.10.13
+Homework-03，Google Material Icon fixed布局    
+Homework-02，Card布局
+### update 2019.10.11
+Homework-01，form表单布局
+### update 2019.10.08
+Experiment-04，jQuery表单处理实验
 ### update 2019.10.06
 JDBC Examples
 ### update 2019.10.05
@@ -11,13 +21,13 @@ Servlet Filter Examples
 ### update 2019.10.04
 Servlet Examples
 ### update 2019.09.26
-实验三，CSS基本布局实验
+Experiment-03，CSS基本布局实验
 ### update 2019.09.24
 jQuery Examples
 ### update 2019.09.22
 JavaScript Basic Examples
 ### update 2019.09.19
-实验二，CSS基本样式实验    
+Experiment-02，CSS基本样式实验    
 ### update 2019.09.15
 CSS Transforms Examples   
 Awesome SideBar With Shadow & Transition & Transform   
@@ -40,7 +50,7 @@ CSS Combinators Examples
 CSS Pseudo-classes Examples   
 CSS Form Examples
 ### update 2019.09.05
-实验一，HTML基本标签实验   
+Experiment-01，HTML基本标签实验   
 ### update 2019.09.03
 CSS Element & Class & ID Selectors Examples   
 CSS File Examples   
