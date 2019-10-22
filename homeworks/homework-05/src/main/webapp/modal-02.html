@@ -10,13 +10,18 @@
             box-sizing: border-box;
         }
 
+        .content {
+            font-size: 50px;
+        }
+
         /* 必须是容器背景色透明，而不是容器透明。否则容器内的元素也会透明
             因此，通过声明背景色透明度实现背景的透明*/
         /* 按窗口尺寸，绝对定位，从而实现模态框的覆盖 */
         .modal {
             width: 100vw;
             height: 100vh;
-            position: absolute;
+            /*此处应该改成fixed*/
+            position: fixed;
             background: rgba(0, 0, 0, 0.2);
             display: none;
         }
@@ -72,7 +77,9 @@
 <div class="content">
     <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci dicta magnam necessitatibus? A aliquid amet
         culpa cumque distinctio ducimus enim eos excepturi exercitationem inventore, obcaecati recusandae sapiente
-        sequi, temporibus unde vel voluptatem!</p>
+        sequi, temporibus unde vel voluptatem!
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab animi aperiam commodi dignissimos eligendi eum eveniet illo unde voluptates? Aperiam architecto aspernatur, aut consectetur delectus dignissimos distinctio doloribus earum error explicabo fuga hic illo illum iste itaque labore molestias perspiciatis quae quasi quisquam quos ratione sed similique tempore voluptas? Dolorem dolorum explicabo in labore libero magnam numquam quae quia. A ab, ad aliquam animi consequatur cum eius eos eveniet id inventore laboriosam mollitia nam nisi nulla numquam optio possimus quo reiciendis repellendus reprehenderit sequi sit tempore veniam veritatis vero? Qui.
+    </p>
     <!-- 通过自定义属性，实现与modal的绑定 -->
     <button data-target="m1">点击激活模态框</button>
 </div>
