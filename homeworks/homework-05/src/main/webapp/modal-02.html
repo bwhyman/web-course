@@ -10,13 +10,19 @@
             box-sizing: border-box;
         }
 
+        /*改变文字大小*/
+        .content {
+            font-size: 6rem;
+        }
+
         /* 必须是容器背景色透明，而不是容器透明。否则容器内的元素也会透明
             因此，通过声明背景色透明度实现背景的透明*/
         /* 按窗口尺寸，绝对定位，从而实现模态框的覆盖 */
         .modal {
             width: 100vw;
             height: 100vh;
-            position: absolute;
+            /*此处应该改成fixed*/
+            position: fixed;
             background: rgba(0, 0, 0, 0.2);
             display: none;
         }
