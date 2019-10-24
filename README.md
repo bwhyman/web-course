@@ -1,4 +1,6 @@
 # Web Course
+### update 2019.10.24
+Experiment-06，EL & JSTL实验   
 ### update 2019.10.20
 homework-04，homework-05 code
 ### update 2019.10.17
