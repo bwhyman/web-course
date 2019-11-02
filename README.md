@@ -1,4 +1,7 @@
 # Web Course
+### update 2019.11.02
+Experiment-07, JDBC实验   
+Experiment-08，MVC整合实验
 ### update 2019.10.24
 Experiment-06，EL & JSTL实验   
 ### update 2019.10.20

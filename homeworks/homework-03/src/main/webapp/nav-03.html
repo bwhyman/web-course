@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        .container {
+            display: flex;
+        }
+
+        nav {
+            position: absolute;
+            background: white;
+            padding: 5px;
+            width: 60px;
+            transition: width 0.5s;
+        }
+
+        nav a {
+            display: block;
+            color: #000;
+            text-decoration: none;
+        }
+        nav span {
+            display: none;
+        }
+        nav:hover {
+            width: 200px;
+        }
+        nav:hover ul {
+            width: 200px;
+        }
+        nav:hover span{
+            display: inline;
+        }
+
+        nav i {
+            padding: 15px;
+            vertical-align: middle;
+        }
+
+        nav a:hover {
+            background: #c3c3c3;
+        }
+        .main {
+            margin-left: 65px;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <nav>
+        <ul>
+            <li><a href=""><i class="material-icons">dashboard</i><span>Dashboard</span></a></li>
+            <li><a href=""><i class="material-icons">desktop_mac</i><span>computer</span></a></li>
+            <li><a href=""><i class="material-icons">timelapse</i><span>timelapse</span></a></li>
+            <li><a href=""><i class="material-icons">style</i><span>style</span></a></li>
+            <li><a href=""><i class="material-icons">dialpad</i><span>dialpad</span></a></li>
+        </ul>
+
+    </nav>
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eaque eos, ipsa perferendis qui rerum unde! Aliquid
+            distinctio dolorum exercitationem illo itaque placeat provident quam repellendus unde vero? Ab error
+            inventore iure voluptate.</p>
+    </div>
+</div>
+</body>
+</html>
