@@ -10,15 +10,5 @@
     <version>1.0-SNAPSHOT</version>
     <modules>
         <module>web-examples</module>
-        <module>experiment-01</module>
-        <module>experiment-02</module>
-        <module>experiment-03</module>
-        <module>experiment-04</module>
-        <module>homeworks</module>
-        <module>experiment-05</module>
-        <module>experiment-06</module>
-        <module>experiment-07</module>
     </modules>
-
-
 </project>
