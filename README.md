@@ -10,7 +10,7 @@ Web开发技术，是东北林业大学软件工程专业第5学期的一门专�
 以及Servlet4/JSP/JSTL/JDBC等基于java的服务器端技术，为后续Web系统框架(Springboot+Vue)/移动终端软件设计(Flutter)课程提供支持
 
 ### Development Environments
- - Intellij IDEA 2020.2.2(OpenJDK 11.0.8)
+ - Intellij IDEA 2020.2.3(OpenJDK 11.0.8)
  - MySQL 8.0.19
  - Tomcat 9.0.38
  - Git 2.28
@@ -20,6 +20,9 @@ Web开发技术，是东北林业大学软件工程专业第5学期的一门专�
  - /web-examples，课程示例
  - /experiments，实验示例 
  - /homeworks，作业示例 
+
+### Documents
+ - https://github.com/bwhyman/web-course/wiki
  
 ### Course Details
  - https://mooc1-1.chaoxing.com/course/91374545.html
