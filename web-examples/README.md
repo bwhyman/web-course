@@ -1,4 +1,15 @@
 # Web Examples
+### update 2020.11.18
+CSS Box-sizing Examples   
+CSS Navigation Bar Examples   
+CSS Transitions Examples   
+CSS Shadow Effects Examples  
+CSS Transforms Examples   
+Awesome SideBar With Shadow & Transition & Transform   
+CSS Dropdowns Examples   
+CSS Viewport Units   
+CSS Flexbox Layout Examples   
+CSS Grid Layout Examples   
 ### update 2020.11.15
 CSS Box Model Examples   
 CSS Images & Opacity Examples   
