@@ -18,8 +18,8 @@ Web开发技术，是东北林业大学软件工程专业第5学期的一门专�
 
 ### Example Collections
  - /web-examples，课程示例
- - /experiments，实验示例 
- - /homeworks，作业示例 
+ - /web-experiments，实验示例 
+ - /web-homeworks，作业示例 
 
 ### Documents
  - https://github.com/bwhyman/web-course/wiki
