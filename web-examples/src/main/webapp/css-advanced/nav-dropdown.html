@@ -9,70 +9,93 @@
             padding: 0;
             box-sizing: border-box;
         }
-
-        nav.nav {
+        /* 上导航区域，横向弹性布局 */
+        .nav {
             display: flex;
             background-color: #333;
         }
-
-        div.dropdown {
+        /* 下拉容器 */
+        .dropdown {
             position: relative;
         }
-
-        div.dropdown a {
+        /* 下拉开关容器 */
+        .dropdown-toggle a {
+            font-size: 1.5em;
             display: block;
             color: white;
             padding: 10px 25px;
             text-decoration: none;
         }
+        /* 下拉列表容器 */
         /* 绝对定位的元素，父容器中定义的背景色尺寸等对其无影响 */
-        ul.dropdown-menu {
-            list-style: none;
+        .dropdown-menu {
             position: absolute;
             display: none;
             width: 100%; /*否则按内容计算*/
             background-color: #333;
         }
-
-        div.dropdown:hover .dropdown-menu {
+        .dropdown-menu ul {
+            list-style: none;
+        }
+        .dropdown-menu a {
             display: block;
+            color: white;
+            padding: 10px 25px;
+            text-decoration: none;
         }
 
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
         .dropdown-menu a:hover {
             background: black;
         }
     </style>
 </head>
 <body>
-<nav class="nav">
-    <div class="dropdown">
-        <a href="">List Items</a>
-        <ul class="dropdown-menu">
-            <li><a href="">item 3</a></li>
-            <li><a href="">item 1</a></li>
-            <li><a href="">item 2</a></li>
-            <li><a href="">item 4</a></li>
-        </ul>
+<div>
+    <div class="nav">
+        <div class="dropdown">
+            <div class="dropdown-toggle">
+                <a href="">List Items</a>
+            </div>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="">item 3</a></li>
+                    <li><a href="">item 1</a></li>
+                    <li><a href="">item 2</a></li>
+                    <li><a href="">item 4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-toggle">
+                <a href="">List Items</a>
+            </div>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="">item 3</a></li>
+                    <li><a href="">item 1</a></li>
+                    <li><a href="">item 2</a></li>
+                    <li><a href="">item 4</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="dropdown">
+            <div class="dropdown-toggle">
+                <a href="">List Items</a>
+            </div>
+            <div class="dropdown-menu">
+                <ul>
+                    <li><a href="">item 3</a></li>
+                    <li><a href="">item 1</a></li>
+                    <li><a href="">item 2</a></li>
+                    <li><a href="">item 4</a></li>
+                </ul>
+            </div>
+        </div>
     </div>
-    <div class="dropdown">
-        <a href="">List Items</a>
-        <ul class="dropdown-menu">
-            <li><a href="">item 3</a></li>
-            <li><a href="">item 1</a></li>
-            <li><a href="">item 2</a></li>
-            <li><a href="">item 4</a></li>
-        </ul>
-    </div>
-    <div class="dropdown">
-        <a href="">List Items</a>
-        <ul class="dropdown-menu">
-            <li><a href="">item 3</a></li>
-            <li><a href="">item 1</a></li>
-            <li><a href="">item 2</a></li>
-            <li><a href="">item 4</a></li>
-        </ul>
-    </div>
-</nav>
-<p>会被绝对定位遮挡</p>
+    <p>会被绝对定位遮挡</p>
+</div>
 </body>
 </html>

@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        /* 测试用的区域样式 */
+        .area {
+            padding: 10px;
+            border: 2px solid #f08c00;
+            background-color: #ffec99;
+            border-radius: 5px;
+        }
+        .nav-sidebar ul {
+            list-style: none;
+        }
+        /* 顶级容器 */
+        .container {
+            min-width: 600px;
+        }
+        /* 全局弹性布局的，行容器 */
+        .row {
+            display: flex;
+            /* 超出项自动换行，从而实现响应式布局 */
+            flex-wrap: wrap;
+            /* 弹性项上对齐，纵向不拉伸 */
+            align-items: flex-start;
+        }
+        /* 分12列 */
+        .col-md-1 {width: 8.33333333%;}
+        .col-md-2 {width: 16.66666667%;}
+        .col-md-3 {width: 25%;}
+        .col-md-4 {width: 33.33333333%;}
+        .col-md-5 {width: 41.66666667%;}
+        .col-md-6 {width: 50%;}
+        .col-md-7 {width: 58.33333333%;}
+        .col-md-8 {width: 66.66666667%;}
+        .col-md-9 {width: 75%;}
+        .col-md-10 {width: 83.33333333%;}
+        .col-md-11 {width: 91.66666667%;}
+        .col-md-12 {width: 100%;}
+
+        /* ------------------------------------------- */
+        @media (max-width: 900px) {
+            .col-sm-1 {width: 8.33333333%;}
+            .col-sm-2 {width: 16.66666667%;}
+            .col-sm-3 {width: 25%;}
+            .col-sm-4 {width: 33.33333333%;}
+            .col-sm-5 {width: 41.66666667%;}
+            .col-sm-6 {width: 50%;}
+            .col-sm-7 {width: 58.33333333%;}
+            .col-sm-8 {width: 66.66666667%;}
+            .col-sm-9 {width: 75%;}
+            .col-sm-10 {width: 83.33333333%;}
+            .col-sm-11 {width: 91.66666667%;}
+            .col-sm-12 {width: 100%;}
+        }
+        /* 单独声明导航的响应式样式，便于维护 */
+        @media (max-width: 900px) {
+            .nav-sidebar ul {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <!-- header -->
+    <div class="area row">
+        <h3>Header: @media (max-width: 900px)</h3>
+    </div>
+    <!-- main -->
+    <div class="area row">
+        <!-- sidebar -->
+        <div class="area nav-sidebar col-md-2 col-sm-12">
+            <ul>
+                <li><a href="">Nav 1</a></li>
+                <li><a href="">Nav 2</a></li>
+                <li><a href="">Nav 3</a></li>
+            </ul>
+        </div>
+        <!-- body -->
+        <div class="area col-md-7 col-sm-12">
+            <h1>Main article area</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Assumenda autem, eligendi impedit ipsam ipsum
+                non similique! Aut dolorum esse expedita, harum ipsum libero, numquam obcaecati provident recusandae
+                sint sit suscipit veritatis voluptas.</p>
+        </div>
+        <!-- aside -->
+        <div class="area col-md-3 row col-sm-12">
+            <div class="area col-md-12 col-sm-6">Advertising1</div>
+            <div class="area col-md-12 col-sm-6">Advertising2</div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="area row">
+        <h3>The footer</h3>
+    </div>
+</div>
+</body>
+</html>
