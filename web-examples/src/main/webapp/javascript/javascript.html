@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h3>JavaScript Syntax</h3>
+<button type="button" onclick="show()">点击获取JS对象中的值</button>
+<div id="demo">被替换为JS对象中的值</div>
+<hr>
+<h3>Arrays of Loop </h3>
+<p id="arrays"></p>
+<hr>
+<h3>Arrays of Loop </h3>
+<button type="button" onclick="loop()">点击在控制台循环显示数组</button>
+<hr>
+<h3>Windows Alert</h3>
+<button type="button" onclick="showAlert()">点击弹出警告框</button>
+<script>
+    let length = 16;  // Number
+    let lastName = "Json";  // String
+    let x = {firstName: "John", lastname: "Doe"};  // Object
+    /* --------------------------- */
+    // 模板字符串
+    let cid = 2;
+    let hid = 1;
+    let res = "/courses/" + cid + "/homeworks/" + hid;
+    let res2 = `/courses/${cid}/homeworks/${hid}`;
+
+    /* ------------------------------ */
+
+    let person = {
+        firstName: "John",
+        lastName: "Doe",
+        id: 5566,
+        getFullName() {
+            return `${this.firstName} / ${this.lastName}`;
+        }
+    };
+    let show = () => {
+        document.getElementById("demo").innerHTML
+            = person.getFullName();
+    }
+    /* ---------------------- */
+    let text = "";
+    for(let i = 0; i < 5; i++) {
+        text += `The number is ${i}<br>`;
+    }
+    document.getElementById("arrays").innerHTML
+        = text;
+    /* --------------------- */
+    let loop = () => {
+        let courses = [
+            {id: 1, name: "Java"},
+            {id: 2, name: "C++"}
+        ];
+        for (const c of courses) {
+            console.log(`${c.id} / ${c.name}`);
+        }
+    }
+
+    /* ------------------ */
+    let showAlert = () => {
+        window.alert(5 + 6);
+    }
+
+</script>
+</body>
+</html>

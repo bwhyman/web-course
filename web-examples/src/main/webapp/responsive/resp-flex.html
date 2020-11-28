@@ -24,7 +24,13 @@
         }
         /* 顶级容器 */
         .container {
-            min-width: 600px;
+            display: flex;
+            flex-direction: column;
+            /* 默认高度最小一屏 */
+            min-height: 100vh;
+        }
+        .grow-1 {
+            flex-grow: 1;
         }
         /* 全局弹性布局的，行容器 */
         .row {
@@ -70,16 +76,21 @@
                 justify-content: space-between;
             }
         }
+        @media (max-width: 900px) {
+            .container-sm {
+                min-height: 100%;
+            }
+        }
     </style>
 </head>
 <body>
-<div class="container">
+<div class="container container-sm">
     <!-- header -->
     <div class="area row">
-        <h3>Header: @media (max-width: 900px)</h3>
+        <h3 class="col-md-12">Header: @media (max-width: 900px)</h3>
     </div>
     <!-- main -->
-    <div class="area row">
+    <div class="area row grow-1">
         <!-- sidebar -->
         <div class="area nav-sidebar col-md-2 col-sm-12">
             <ul>
@@ -103,7 +114,7 @@
     </div>
     <!-- footer -->
     <div class="area row">
-        <h3>The footer</h3>
+        <h3 class="col-md-12">The footer</h3>
     </div>
 </div>
 </body>
