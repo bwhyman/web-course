@@ -1,5 +1,39 @@
-# Homework-04
-### Material Icon响应式布局
+# Homework-06, Float Button布局
+实现效果：当悬浮在浮动按钮，动态改变按钮图标，过渡旋转180度，渐入二级图标列表     
+
+![result](./asserts/floatbutton-01.gif)
+
+### 原理与思路
+难点在于：  
+通过jquery动态改变元素文本内容，从而改变浮动按钮图标  
+通过CSS实现转动较简单，但不利于动态/抽象改变元素文本内容  
+因此需要结合jquery+css共同实现  
+
+**布局/样式**  
+fab浮动容器，绝对定位到右上角，内容居中；包含：fab-btn按钮容器，fab-menu容器   
+fab-btn容器，包含浮动按钮图标，颜色/尺寸大小等等；按钮图标最好选用实心图标，空心最好加背景，否则浮动按钮可能不明显  
+fab-menu容器，隐藏。包含列表，每个列表项中超链接，内容为图标    
+可声明特定的二级图标样式，例如删除为红色  
+悬浮在fab容器时，按钮图标过渡旋转180度  
+
+jquery
+容器悬浮监听，进入，修改按钮图标，fab-menu渐入；移出，改回按钮图标，fab-menu渐出   
+
+# Homework-05, Badges布局
+### 原理与思路
+**布局**  
+badge整体容器，包含：badge-content容器，badge-wrapper容器  
+badge-content容器，内容为图标  
+badge-wrapper容器，内容为数字  
+
+**样式**  
+引入Google Material Icon  
+content容器中图标，声明合适颜色尺寸等  
+badge容器，定位在badge整体容器右上角；背景色/字体色/字体尺寸  
+badge容器如何变成圆形？数字叠加在图标上，有一圈白色空间？  
+
+![result](./asserts/badge-01.PNG)
+# Homework-04, Material Icon响应式布局
 ### 原理与思路
 **布局**   
 声明弹性容器      
@@ -19,8 +53,7 @@
 
 ![result](./asserts/nav-01.gif)
 
-# Homework-03
-### Google Material Icon fixed布局
+# Homework-03, Google Material Icon fixed布局
 实现左侧固定的侧边栏导航，侧边栏中基于网络提供的Icon图标实现     
 Google Material Icon，是Google设计提供的一套免费开源的图标库   
 Google官方最新为v4版，用以下v3即可  
@@ -82,8 +115,7 @@ header中的图片：显示为圆形半透明，尺寸按容器缩放
 当悬浮在card：图片不再透明，且添加渐变效果  
 当悬浮在按钮式超链接：背景色纯红   
 
-# Homework-01
-### form表单布局
+# Homework-01, form表单布局
 掌握以上给定的HTML布局方法   
 基于以上已实现的form布局，通过添加CSS代码实现需要的样式   
 参考：https://v4.bootcss.com/docs/components/forms/   

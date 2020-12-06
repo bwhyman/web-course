@@ -10,6 +10,14 @@
         div.container2 > p {
             background: yellow;
         }
+
+        div.container3 + p {
+            background: yellow;
+        }
+        div.container4 > div.general ~ p {
+            background: yellow;
+        }
+
     </style>
 </head>
 <body>
@@ -32,5 +40,35 @@
     </div>
 </div>
 <p>Paragraph 4 NOT in the div</p>
+<hr>
+<h3>Adjacent Sibling Selector</h3>
+<p>Paragraph 0. Not in a div.</p>
+<div class="container3">
+    <p>Paragraph 1 in the div.</p>
+    <p>Paragraph 2 in the div.</p>
+</div>
+<p>Paragraph 3. Not in a div.</p>
+<p>Paragraph 4. Not in a div.</p>
+
+<p>Paragraph 0. Not in a div.</p>
+<div class="container3">
+    <p>Paragraph 1 in the div.</p>
+    <p>Paragraph 2 in the div.</p>
+</div>
+<div><p>Paragraph. in another div</p></div>
+<p>Paragraph 3. Not in a div.</p>
+<p>Paragraph 4. Not in a div.</p>
+<hr>
+<h3>General Sibling Selector</h3>
+<div class="container4">
+    <p>Paragraph 1.</p>
+    <div class="general">
+        <p>Paragraph 2.</p>
+    </div>
+    <p>Paragraph 3.</p>
+    <code>Some code.</code>
+    <p>Paragraph 4.</p>
+</div>
+
 </body>
 </html>
