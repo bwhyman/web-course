@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="https://cdn.bootcss.com/material-design-icons/3.0.1/iconfont/material-icons.css" rel="stylesheet">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        /* 浮动容器绝对定位，内容居中 */
+        .fab {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            text-align: center;
+        }
+
+        /* 浮动容器中的按钮图标 */
+        .fab-btn i {
+            font-size: 4rem;
+            color: #03a9f4;
+            transition: transform 0.5s;
+        }
+        /* 悬浮在容器，容器内部的按钮图标，旋转180度 */
+        .fab:hover .fab-btn i {
+            transform: rotate(180deg);
+        }
+
+        /* 取消样式，隐藏 */
+        .fab-menu {
+            display: none;
+        }
+        .fab-menu ul {
+            list-style: none;
+        }
+
+        /* 二级图标，可以比浮动按钮小一点 */
+        .fab-menu ul i {
+            font-size: 2.5rem;
+            color: #03a9f4;
+        }
+
+        /* 指定特殊样式图标 */
+        .fab-menu ul .del {
+            color: red;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="fab">
+        <div class="fab-btn">
+            <a href=""><i class="material-icons" data-replace="remove_circle">account_circle</i></a>
+        </div>
+        <div class="fab-menu">
+            <ul>
+                <li><a href=""><i class="material-icons">edit</i></a></li>
+                <li><a href=""><i class="material-icons">color_lens</i></a></li>
+                <li><a href=""><i class="material-icons del">delete_forever</i></a></li>
+            </ul>
+        </div>
+
+    </div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+       // 初始化i
+
+        $(".fab").hover(function () {
+            // 悬浮容器的直接子元素，即悬浮按钮，改变图标
+            let i = $(this).children(".fab-btn").find("i");
+            // 标签自定义属性置换
+            let temp = i.text();
+            i.text(i.data("replace"));
+            i.data("replace", temp);
+            // 容器中的二级菜单，渐入
+            $(this).children(".fab-menu").fadeIn();
+        }, function () {
+            // 改回原图标
+            let i = $(this).children(".fab-btn").find("i");
+            let temp = i.text();
+            i.text(i.data("replace"));
+            i.data("replace", temp);
+            // 渐出
+            $(this).children(".fab-menu").fadeOut();
+        })
+    })
+</script>
+
+</body>
+</html>
