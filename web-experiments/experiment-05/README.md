@@ -27,8 +27,9 @@
 在login.html添加，向/welcome地址请求的超链接  
 基于IDEA&Tomat/Encoding&WAR&JSP视频，在调试模式下，部署运行项目至tomcat服务器  
 向login发起请求，正确运行后，浏览器将显式登录页面  
+ctrl+F9在debug运行模式下重新编译/部署项目  
 
-ctrl+F9在debug运行模式下重新编译/部署项目
+![login](./asserts/login-01.png)
 
 **需求+1**  
 在com.entity下，创建User实体类，声明用户姓名/账号/密码等私有属性  
