@@ -1,5 +1,9 @@
 package com.example07.jstl;
 
+import com.datasource.Course;
+import com.datasource.DatabaseUtils;
+import com.datasource.Teacher;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;

@@ -10,14 +10,14 @@
 <body>
 <h3>Insert</h3>
 添加指定用户
-<form action="/jdbc/insert" method="post">
+<form action="jdbc/insert" method="post">
     name: <input type="text" name="name" required> <br>
     <button type="submit">提交</button>
 </form>
 <hr>
 <h3>Update</h3>
 修改指定用户
-<form action="/jdbc/update" method="post">
+<form action="jdbc/update" method="post">
     <select name="userid">
         <option value="">请选择用户</option>
         <c:forEach items="${users }" var="u">
@@ -31,7 +31,7 @@
 <hr>
 <h3>Delete</h3>
 删除指定用户
-<form action="/jdbc/delete" method="post">
+<form action="jdbc/delete" method="post">
     <ul>
         <c:forEach items="${users }" var="u">
             <li><label>
