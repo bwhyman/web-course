@@ -25,6 +25,6 @@ public class JDBCUpdateServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        resp.sendRedirect("/jdbc/index");
+        resp.sendRedirect(req.getContextPath()+ "/jdbc/index");
     }
 }

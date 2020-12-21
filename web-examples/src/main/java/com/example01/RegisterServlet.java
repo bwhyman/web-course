@@ -10,7 +10,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.logging.Logger;
 
-@WebServlet("/example01/register")
+@WebServlet("/servlet/example01/register")
 public class RegisterServlet extends HttpServlet {
     private static final Logger LOGGER = Logger.getLogger(RegisterServlet.class.getName());
     @Override

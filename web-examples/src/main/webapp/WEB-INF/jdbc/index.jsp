@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <c:url var="base" value="/" />
+    <base href="${base}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -45,7 +47,7 @@
 查询指定用户
 <ul>
     <c:forEach items="${users }" var="u">
-        <li><a href="/jdbc/query?userid=${u.id }">${u.name }</a></li>
+        <li><a href="jdbc/query?userid=${u.id }">${u.name }</a></li>
     </c:forEach>
 </ul>
 <hr>

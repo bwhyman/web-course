@@ -13,7 +13,7 @@ public class RedirectServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req,
                          HttpServletResponse resp)
             throws ServletException, IOException {
-        resp.sendRedirect("/servlet/login.html");
+        resp.sendRedirect(req.getContextPath()+ "/servlet/login.html");
         // resp.sendRedirect("https://www.baidu.com");
     }
 }

@@ -30,7 +30,7 @@ public class UserFilter extends HttpFilter {
             chain.doFilter(req, res);
         } else {
             // 不存在，重定向到登录页面
-            res.sendRedirect("/filter/login");
+            res.sendRedirect(req.getContextPath()+ "/filter/login");
         }
     }
 }

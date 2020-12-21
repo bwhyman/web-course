@@ -24,7 +24,7 @@ public class WelcomeServlet extends HttpServlet {
             LOGGER.info("当前/登录时间：" + LocalDateTime.now() + "/" + user.getLoginTime());
         } else {
             // 如果session中用户不存在，则重定向到登录页面
-            resp.sendRedirect("/example04/login");
+            resp.sendRedirect(req.getContextPath()+ "/example04/login");
         }
     }
 }
