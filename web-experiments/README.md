@@ -4,3 +4,5 @@
 # 实验四 jQuery表单处理实验
 # 实验五 Servlet/Filter实验
 # 实验六 EL/JSTL实验
+# 实验七 JDBC实验
+# 实验八 MVC实验

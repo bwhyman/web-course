@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <Resource name="jdbc/MySQL" type="javax.sql.DataSource"
+              maxTotal="100" maxIdle="30" maxWaitMillis="10000" initialSize="5"
+              username="2046204600" password="2046204600"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://114.116.213.241:3306/2046204600?serverTimezone=Asia/Shanghai" />
+</Context>
