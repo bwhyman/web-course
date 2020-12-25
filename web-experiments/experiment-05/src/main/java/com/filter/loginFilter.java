@@ -27,7 +27,7 @@ public class loginFilter extends HttpFilter {
         if (user != null) {
             chain.doFilter(req, res);
         } else {
-            res.sendRedirect("/login");
+            res.sendRedirect(req.getContextPath() + "/login");
         }
     }
 }

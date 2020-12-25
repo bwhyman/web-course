@@ -29,6 +29,6 @@ public class LoginServlet extends HttpServlet {
         } else {
             url = "/login";
         }
-        resp.sendRedirect(url);
+        resp.sendRedirect(req.getContextPath() + url);
     }
 }
