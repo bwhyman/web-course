@@ -48,6 +48,13 @@
         #inline-block a:hover {
             background: red;
         }
+
+        #v-align div {
+            vertical-align: top;
+            display: inline-block;
+            width: 200px;
+            border: 1px solid red;
+        }
     </style>
 </head>
 <body>
@@ -86,6 +93,16 @@
                 <a href="#">删除</a></td>
         </tr>
     </table>
+    <hr>
+    <h3>vertical-align</h3>
+    <p>vertical-align属性，与其他平级inline元素的垂直对其方式。默认baseline为基于元素的内容基线对其。 <br>
+        声明在子元素，决定元素自身，与其他元素垂直对其方式，而非声明在容器
+    </p>
+    <div id="v-align">
+        <div style="line-height: 2.2em; font-size: 2.5em">
+            test1 <br> test2</div>
+        <div>test1</div>
+    </div>
 </div>
 </body>
 </html>
