@@ -12,6 +12,10 @@
     <artifactId>experiment-01</artifactId>
     <packaging>war</packaging>
 
+    <properties>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
     <dependencies>
         <!-- https://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
         <dependency>
@@ -21,7 +25,6 @@
             <scope>provided</scope>
         </dependency>
     </dependencies>
-    <!-- idea默认war打包插件太老，不支持servlet4后允许web-inf目录不存在的规范 -->
     <build>
         <plugins>
             <plugin>
