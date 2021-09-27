@@ -5,13 +5,13 @@
     <title>Insert title here</title>
     <style>
 
-        div.peseudo {
+        div.pseudo {
             background-color: green;
             color: white;
             padding: 25px;
             text-align: center;
         }
-        div.peseudo:hover {
+        div.pseudo:hover {
             background-color: blue;
         }
 
@@ -24,11 +24,19 @@
         input:invalid {
             border: 2px solid red;
         }
+        /* ----------------------- */
+        #pseudo-2:hover > p {
+            background: red;
+        }
+
+        #pseudo-3 > .container:hover + p {
+            background: red;
+        }
     </style>
 </head>
 <body>
 <p>Mouse over the div element below to change its background color:</p>
-<div class="peseudo">Mouse Over Me</div>
+<div class="pseudo">Mouse Over Me</div>
 <hr>
 <div id="nth">
     <p>The first paragraph.</p>
@@ -37,7 +45,27 @@
     <p>The 4th paragraph.</p>
 </div>
 <hr>
-<p>email校验失败样式</p>
-<input type="email">
+<div>
+    <p>email校验失败样式</p>
+    <input type="email">
+</div>
+<hr>
+<p>pseudo伪类可以对，自身/子元素/关系元素，产生影响。但不支持改变任意元素。</p>
+<p>#pseudo-2:hover > p。当悬浮在#pseudo-2时，其直接子元素改变</p>
+<div id="pseudo-2">
+    <p>The first paragraph.</p>
+    <p>The second paragraph.</p>
+    <div><p>The third paragraph.</p></div>
+    <p>The 4th paragraph.</p>
+</div>
+
+<p>#pseudo-3 > .container:hover + p。当悬浮在#pseudo-3中的.container时，该元素紧邻元素改变。</p>
+<div id="pseudo-3">
+    <p>The first paragraph.</p>
+    <p>The second paragraph.</p>
+    <div class="container"><p>container. The third paragraph.</p></div>
+    <p>The 4th paragraph.</p>
+</div>
+<p></p>
 </body>
 </html>
