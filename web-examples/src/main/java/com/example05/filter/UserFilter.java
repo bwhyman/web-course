@@ -8,15 +8,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
-import java.util.Optional;
 
 @WebFilter("/filter/*")
 public class UserFilter extends HttpFilter {
-    private final List<String> exculdes = List.of("/filter/login");
+    private final List<String> excludes = List.of("/filter/login");
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         // 基于请求的地址，判断是否需要排除
-        for (String e : exculdes) {
+        for (String e : excludes) {
             if (e.equals(req.getServletPath())) {
                 // 需要排除，则直接执行后续操作
                 chain.doFilter(req, res);

@@ -21,8 +21,8 @@ public class LoginServlet extends HttpServlet {
         String password = req.getParameter("pwd");
         String relUrl
                 = "BO".equals(userName) && "123456".equals(password)
-                ? req.getContextPath()+ "/example02/welcome"
-                : req.getContextPath()+ "/example02/login";
-        resp.sendRedirect(relUrl);
+                ? "/example02/welcome"
+                : "/example02/login";
+        resp.sendRedirect(req.getContextPath() + relUrl);
     }
 }

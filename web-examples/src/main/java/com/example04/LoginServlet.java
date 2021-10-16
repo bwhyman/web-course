@@ -28,12 +28,12 @@ public class LoginServlet extends HttpServlet {
             // 用户存在，将用户对象加入session，下次请求可直接从session中获取
             req.getSession().setAttribute("user", user);
             // 重定向到welcome页面
-            url = req.getContextPath()+ "/example04/welcome";
+            url = "/example04/welcome";
         } else {
             // 用户不存在，重定向到登录页面
-            url = req.getContextPath()+ "/example04/login";
+            url = "/example04/login";
         }
         // 无论怎么，post请求后，均重定向
-        resp.sendRedirect(url);
+        resp.sendRedirect(req.getContextPath() + url);
     }
 }

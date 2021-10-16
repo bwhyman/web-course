@@ -5,7 +5,7 @@
 允许并鼓励使用Bootstrap/easy-ui/flat-ui等UI框架，及轮播/动画/图表/全屏滚动等等插件  
 允许使用vue/react/springboot等技术，但需部署在学生个人服务器，提供访问网址  
 本设计占总成绩40%，按功能完成设计状况评分  
-分组：每人1组，独立完成  
+<span style="color: red">分组：每人1组，独立完成</span>  
 截至时间：15周(具体日期待定)  
 提交/部署方式：以war包上传到指定系统，项目统一部署在华为云服务器  
 部署环境：Docker Tomcat9+MySQL8容器  
