@@ -1,4 +1,4 @@
-# Homework-07, Modal模态框
+# Homework-06, Modal模态框
 Modal模态框是一种更灵活、更强大的自定义对话框  
 实现效果：当模态框被激活，覆盖在网页内容上，并在弹出的窗口中显式详细互交信息  
 参考：https://getbootstrap.net/docs/components/modal/  
@@ -31,7 +31,7 @@ modal-content/modal-footer容器，主内容/页脚区域，字体/按钮组/边
 可通过animate()方法，添加对话框的动态定位，从默认的顶端，渐变定位到距上30px，即对话框从上向下渐入；
 关闭模态框时，再将对话框渐变定位到顶端，即，从下向上渐出  
 
-# Homework-06, Float Button布局
+# Homework-05, Float Button布局
 实现效果：当悬浮在浮动按钮，动态改变按钮图标，过渡旋转180度，渐入二级图标列表     
 
 ![result](./asserts/floatbutton-01.gif)
@@ -52,21 +52,7 @@ fab-menu容器，隐藏。包含列表，每个列表项中超链接，内容为
 jquery
 容器悬浮监听，进入，修改按钮图标，fab-menu渐入；移出，改回按钮图标，fab-menu渐出   
 
-# Homework-05, Badges布局
-### 原理与思路
-**布局**  
-badge整体容器，包含：badge-content容器，badge-wrapper容器  
-badge-content容器，内容为图标  
-badge-wrapper容器，内容为数字  
-
-**样式**  
-引入Google Material Icon  
-content容器中图标，声明合适颜色尺寸等  
-badge容器，定位在badge整体容器右上角；背景色/字体色/字体尺寸  
-badge容器如何变成圆形？数字叠加在图标上，有一圈白色空间？  
-
-![result](./asserts/badge-01.PNG)
-# Homework-04, Material Icon响应式布局
+# Homework-04, Navigation Drawer响应式布局
 ### 原理与思路
 **布局**   
 声明弹性容器      
@@ -86,46 +72,28 @@ badge容器如何变成圆形？数字叠加在图标上，有一圈白色空间
 
 ![result](./asserts/nav-01.gif)
 
-# Homework-03, Google Material Icon fixed布局
-实现左侧固定的侧边栏导航，侧边栏中基于网络提供的Icon图标实现     
+# Homework-03, Badges布局 
 Google Material Icon，是Google设计提供的一套免费开源的图标库   
 Google官方最新为v4版，用以下v3即可  
 学习使用方法及国内CDN：http://micon.dxbtech.cn/   
-正确引入css后，声明展示对应的图标   
-
-![result](./asserts/fixed-01.gif)
-
+正确引入css后，声明展示对应的图标
 ### 原理与思路
-布局   
-声明全局容器    
-声明导航容器   
-导航容器中，声明放置图标的item容器   
-item容器中声明超链接，超链接内容为icon   
-声明复制若干item容器   
-声明主容器   
-主容器中声明段落   
+**布局**  
+badge整体容器，包含：badge-content容器，badge-wrapper容器  
+badge-content容器，内容为图标  
+badge-wrapper容器，内容为数字
 
-样式   
-全局box计算模式   
-全局弹性容器  
-左导航容器，显式声明宽度，高度为浏览器窗口高度，固定。即，当内容长度超过一屏可滚动时，左导航不动   
-右侧主区域容器，占用除左导航外的最大
-- 由于左侧导航按固定布局，因此，弹性布局不计算其尺寸。
-即，此时弹性容器内，仅有一个主容器。
-因此，主区域容器布局时，用margin据左为左导航宽度，从而避免导航压住内容区域   
+**样式**  
+引入Google Material Icon  
+content容器中图标，声明合适颜色尺寸等  
+badge容器，定位在badge整体容器右上角；背景色/字体色/字体尺寸  
+badge容器如何变成圆形？数字叠加在图标上，有一圈白色空间？
 
-item容器，中内容居中，即超链接居中   
-超链接导航，内边距撑开，可点击范围为全部item等   
-Google图标，为Google图标创建一个自定义样式类，声明图标的颜色/尺寸样式   
-Google图标库基于文本声明，因此图标的颜色/尺寸等是基于文本的属性   
-当悬浮在item，item向上移动5px，添加渐进效果。即，当悬浮时，有图标向上跳一下的效果   
-
-# Homework-02
-### Card布局
+![result](./asserts/badge-01.PNG)
+# Homework-02, Card弹性列表布局
 掌握以上给定的HTML布局方法，最后一次提供HTML布局，下次作业的HTML布局代码也自己写了   
-基于Card设计模式，实现人物描述布局样式      
+基于Card设计模式，实现图片描述布局样式      
 网站测试图库，网站提供多种尺寸风格的图片，可用于测试：  
-https://pravatar.cc/ (可能无法访问)   
 https://picsum.photos/  
 
 ![result](./asserts/card-02.gif)
