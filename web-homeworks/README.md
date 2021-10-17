@@ -85,9 +85,9 @@ badge-wrapper容器，内容为数字
 
 **样式**  
 引入Google Material Icon  
-content容器中图标，声明合适颜色尺寸等  
-badge容器，定位在badge整体容器右上角；背景色/字体色/字体尺寸  
-badge容器如何变成圆形？数字叠加在图标上，有一圈白色空间？
+badge-content容器中图标，声明合适颜色尺寸等  
+badge-wrapper容器，定位在badge整体容器右上角；背景色/字体色/字体尺寸  
+badge-wrapper容器如何变成圆形？数字叠加在图标上，有一圈白色空间？
 
 ![result](./asserts/badge-01.PNG)
 # Homework-02, Card弹性列表布局
