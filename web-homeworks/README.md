@@ -72,6 +72,9 @@ jquery
 
 ![result](./asserts/nav-01.gif)
 
+**需求+1**  
+![result](./asserts/nav-03.gif)
+
 # Homework-03, Badges布局 
 Google Material Icon，是Google设计提供的一套免费开源的图标库   
 Google官方最新为v4版，用以下v3即可  

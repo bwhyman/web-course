@@ -1,5 +1,5 @@
 # Experiment-05, Servlet/Filter实验
-###实验原理
+### 实验原理
 通过Servlet完成Web应用的请求、响应、页面文件的转发以及重定向，通过Filter完成对请求的拦截与处理，声明周期回调方法的作用与意义。
 
 ### 实验目的
@@ -25,7 +25,7 @@
 在com.controller下，创建LoginServlet类，处理/login地址请求，重写doGet()方法，转发请求至login.html  
 在com.controller下，创建WelcomeServlet类，处理/welcome地址请求，重写doGet()，转发至welcome.html  
 在login.html添加，向/welcome地址请求的超链接  
-基于IDEA&Tomat/Encoding&WAR&JSP视频，在调试模式下，部署运行项目至tomcat服务器  
+基于Tomcat Hot Deploy视频，在调试模式下，部署运行项目至tomcat服务器  
 向login发起请求，正确运行后，浏览器将显式登录页面  
 ctrl+F9在debug运行模式下重新编译/部署项目  
 
@@ -39,7 +39,7 @@ ctrl+F9在debug运行模式下重新编译/部署项目
 
 此时，仍可直接向/welcome地址发送请求  
 
-** 需求+**  
+**需求+1**  
 在com.filter下，创建LoginFilter过滤器，声明排除路径，重写doFilter()方法，判断请求路径是否为排除路径，判断用户是否已登录  
 从而实现，当用户已登录，可以直接发送/welcome请求；未登录，重定向到/login登录  
 关闭/重启服务器(为了清空session)，尝试在登录/未登录状态下，向/welcome请求  

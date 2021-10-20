@@ -1,5 +1,5 @@
 # Experiment-07, JDBC实验
-###实验原理
+### 实验原理
 通过配置DataSource连接数据库，通过JDBC Connection、PreparedStatement、ResultSet接口完成数据库操作。
 
 ### 实验目的
