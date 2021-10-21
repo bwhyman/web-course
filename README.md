@@ -2,12 +2,12 @@
 ### Overview
 China, Northeast Forestry University, Software Engineering, Web Development Technologies
 
-Web开发技术，是东北林业大学软件工程专业第5学期的一门专业选修课。  
-主讲教师：王波 讲师
+Web开发技术，是东北林业大学软件工程专业第5学期的一门专业选修课，32+16课时。  
+主讲教师：王波老师
 
 课程基于HTML5/CSS3/JavaScript(ES7+)，讨论基本Web网页设计开发技术。包括：  
 基本HTML标签；栅格/弹性/响应式等基本布局方式；Card/模态框/浮动按钮等基本网页组件的设计实现；  
-以及Servlet4/JSP/JSTL/JDBC等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
+以及Servlet4/JSP/JSTL/JDBC/异步非阻塞Servlet&Filter等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
 
 ### Development Environments
  - Intellij IDEA 2021.2(OpenJDK 11)

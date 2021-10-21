@@ -30,6 +30,6 @@ public class LoginServlet extends HttpServlet {
             url = "/filter/login";
         }
         // 无论怎么，post请求后，均重定向
-        resp.sendRedirect(url);
+        resp.sendRedirect(req.getContextPath() + url);
     }
 }
