@@ -18,8 +18,8 @@
 
 ### 需求+设计提示
 **需求+1**  
-在/WEB_INF/jsp/下，创建login.html登录页面，声明登录form表单，向/login发出请求  
-在/WEB_INF/jsp/下，创建welcome.html页面，声明欢迎文本  
+在/WEB-INF/jsp/下，创建login.html登录页面，声明登录form表单，向/login发出请求  
+在/WEB-INF/jsp/下，创建welcome.html页面，声明欢迎文本  
 
 在java目录下，编写java代码  
 在com.controller下，创建LoginServlet类，处理/login地址请求，重写doGet()方法，转发请求至login.html  
