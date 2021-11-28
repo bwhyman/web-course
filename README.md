@@ -29,6 +29,6 @@ Web开发技术，是东北林业大学软件工程专业第5学期的一门专�
  
 ### Related Courses
  - https://github.com/bwhyman/java-course
- - https://github.com/bwhyman/springboot-course-2021
- - https://github.com/bwhyman/vue3-examples
+ - https://github.com/bwhyman/springboot-course
+ - https://github.com/bwhyman/vite-vue3-examples
  - https://github.com/bwhyman/flutter_examples

@@ -4,6 +4,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <c:url var="base" value="/"/>
+    <base href="${base}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
