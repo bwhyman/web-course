@@ -5,7 +5,7 @@
     <title>Title</title>
     <style>
 
-        #flex, #flex2, #flex3, #flex4, #flex5, #flex6 {
+        #flex, #flex2, #flex3, #flex4, #flex5, #flex6, #flex7, #flex8, #container2 {
             display: flex;
             background-color: DodgerBlue;
         }
@@ -30,9 +30,8 @@
             flex-grow: 2;
         }
 
-
         #flex > div, #flex2 > div, #flex3 > div, #flex4 > div, #flex5 > div, #flex5 > .grow-1,
-        #flex5 > .grow-2, #flex6 > div, #flex6 > .align-center {
+        #flex5 > .grow-2, #flex6 > div, #flex7 > div, #flex8 > div, #flex6 > .align-center {
             background-color: #f1f1f1;
             width: 100px;
             margin: 10px;
@@ -41,22 +40,19 @@
             font-size: 30px;
         }
 
-        #flex5 > .percent-30 {
+        #flex6 > .percent-30 {
             flex-basis: 30%;
         }
 
-        #flex5 > .percent-70 {
+        #flex6 > .percent-70 {
             flex-basis: 70%;
         }
 
-        .a {
-            font-size: 16px;
-        }
-
-        #flex6 > .align-center {
+        #flex8 > .align-center {
             align-self: center;
             line-height: 25px;
         }
+
         /* -------------------------------------- */
         .nav ul {
             display: flex;
@@ -64,15 +60,18 @@
             list-style-type: none;
             background-color: #333;
         }
+
         .nav li a {
             display: block;
             color: white;
             padding: 14px 16px;
             text-decoration: none;
         }
+
         .nav li a:hover {
             background-color: #111;
         }
+
         .nav .right {
             margin-left: auto;
         }
@@ -142,29 +141,28 @@
     <div class="grow-2">3</div>
 </div>
 <hr>
-<div id="flex5">
+<div id="flex6">
     <div class="percent-30">30%</div>
     <div class="percent-70">70%</div>
 </div>
 <hr>
-<div id="flex5">
-    <div class="grow-1">1</div>
-    <div class="grow-1">2</div>
-    <div class="grow-2">3</div>
-    <div class="grow-1">4</div>
-    <div class="grow-1">5</div>
-    <div class="grow-2" style="flex-shrink: 0">6</div>
+<div id="flex7">
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <div style="flex-shrink: 0">6</div>
 </div>
 <hr>
 <p>The "align-self: center;" aligns the selected flex item in the
     middle of the container:</p>
-<div id="flex6">
+<div id="flex8">
     <div>1</div>
     <div class="align-center">2</div>
     <div>3</div>
 </div>
 <hr>
-
 <h2>Horizontal Navigation Bar</h2>
 <div class="nav">
     <ul>
@@ -175,6 +173,53 @@
         <li><a href="#">Logout</a></li>
     </ul>
 </div>
+<hr>
+<style>
+    #container2 {
+        padding: 15px;
+        display: flex;
+        align-items: start;
+    }
+
+    #container2 div.sidebar {
+        background-color: #f1f1f1;
+        border: 1px solid red;
+        margin: 0 8px;
+        flex-shrink: 0;
+        flex-basis: 200px;
+    }
+
+    #container2 div.main {
+        background-color: #f1f1f1;
+        border: 1px solid red;
+        margin: 0 8px;
+        flex-grow: 1;
+    }
+</style>
+<h2>Flex Layout</h2>
+<div id="container2">
+    <div class="sidebar">
+        <p>Lorem ipsum dolor sit!</p>
+    </div>
+    <div class="main">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab accusamus, aliquam amet architecto beatae
+            commodi cupiditate debitis dolores doloribus eaque iste itaque iure, nobis numquam placeat quasi quibusdam
+            sequi! Aliquid asperiores beatae dignissimos dolores ea error exercitationem facilis fuga illum ipsa labore
+            molestiae mollitia nobis nostrum perferendis, quae totam! Dolor eveniet ipsum nesciunt non porro rem
+            reprehenderit sint! Animi aut dolor eveniet excepturi quo reiciendis veritatis vitae? Accusamus at cum
+            deleniti ea eius excepturi explicabo facilis fuga ipsam iure minus molestias mollitia nemo, non nulla
+            praesentium quia ratione, reprehenderit rerum tempora tempore velit voluptas. Ad assumenda beatae culpa ea
+            esse ex hic incidunt iure libero minima nemo nostrum numquam officia optio possimus quia, quis quisquam
+            recusandae soluta, tempore temporibus tenetur voluptatum. Debitis facere libero minus natus optio
+            repellendus similique soluta tempora ut veritatis. Architecto aut, dolore eius eveniet laborum quaerat
+            recusandae veritatis. Aliquam aperiam ducimus tempore! Aliquam cupiditate dignissimos eligendi error est
+            explicabo numquam perferendis rerum tenetur, veniam? Alias eum fugit in laborum, maxime repellat sapiente
+            veniam voluptatibus. Ad alias aliquid commodi deleniti dicta eos inventore laudantium natus nisi nobis,
+            praesentium, provident quibusdam, quisquam reprehenderit sapiente sunt unde! Accusamus aspernatur delectus,
+            iste laborum pariatur sapiente. Porro possimus sed similique veritatis.</p>
+    </div>
+</div>
+
 <br>
 <br>
 </body>

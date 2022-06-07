@@ -10,34 +10,38 @@
             box-sizing: border-box;
         }
         /* 左侧边栏容器宽度 */
-        aside {
+        .sidebar {
+            margin: 15px;
             width: 300px;
             background: #f1f1f1;
         }
+        .sidebar-group ul {
+            list-style: none;
+        }
         /* 导航标题 */
-        .sidebar > h2 {
+        .sidebar-group > h2 {
             padding: 15px 20px;
             background: #3185bf;
             color: white;
         }
         /* 添加标题悬浮样式 */
-        .sidebar > h2:hover {
+        .sidebar-group > h2:hover {
             cursor: pointer;
             background: #000;
         }
         /* 初始化时，将二级菜单隐藏，滑动时jquery自动修改display属性 */
-        .sidebar ul {
+        .sidebar-group ul {
             display: none;
         }
         /* 二级菜单样式 */
-        .sidebar li a {
+        .sidebar-group li a {
             display: block;
             color: black;
             text-decoration: none;
             padding: 10px 20px;
         }
         /* 二级菜单悬浮样式 */
-        aside li a:hover {
+        .sidebar-group li a:hover {
             font-weight: bold;
             background-color: #555;
             color: white;
@@ -46,8 +50,21 @@
     </style>
 </head>
 <body>
-<aside>
-    <div class="sidebar">
+<div>
+    <p>模拟二级菜单无法全部展开的，多二级菜单的侧边栏。
+        通过jquery实现点击一级标题展开其下的二级菜单，同时收缩其他已展开的二级菜单。即，同一时间只有一个二级菜单展开。</p>
+    <p>
+        过jquery监听标题的点击事件，当任一标题被点击，获取其下的ul元素，对此ul实现滑动切换，即当其已经是展开状态，
+        则滑上；再通过选择器获取全部导航的ul，在其中过滤掉当前ul，滑上。
+
+        滑上slideUp()；滑动切换slideToggle()；
+        next()方法，获取元素对象平级的，下一个指定元素；
+        not()方法，从选取的全部元素中排除指定元素
+        2个ul的二级菜单，如何实现获取被点击标题下的那个ul元素？
+    </p>
+</div>
+<div class="sidebar">
+    <div class="sidebar-group">
         <h2>云技术管理</h2>
         <ul>
             <li><a href="#">云服务器</a></li>
@@ -55,7 +72,7 @@
             <li><a href="#">负载均衡</a></li>
         </ul>
     </div>
-    <div class="sidebar">
+    <div class="sidebar-group">
         <h2>安全管理</h2>
         <ul>
             <li><a href="#">云盾控制台</a></li>
@@ -64,17 +81,17 @@
             <li><a href="#">CA证书服务</a></li>
         </ul>
     </div>
-</aside>
+</div>
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script>
     $(function () {
-        $(".sidebar > h2").click(function () {
+        $(".sidebar-group > h2").click(function () {
             // 被点击标题之后的ul元素，与标题平级
             let ul = $(this).next("ul");
             // 此二级导航，滑动切换
             ul.slideToggle();
             // 其他二级导航，排除当前导航，全部滑上
-            $(".sidebar > ul").not(ul).slideUp();
+            $(".sidebar-group > ul").not(ul).slideUp();
         });
     })
 </script>

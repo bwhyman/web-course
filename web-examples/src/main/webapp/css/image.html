@@ -34,7 +34,13 @@
             width: 100%;
             height: auto;
         }
-
+        #img {
+            height: 200px;
+            border: 1px solid red;
+        }
+        #img img {
+            max-height: 100%;
+        }
         div.bg-green {
             background: #008000;
             padding: 15px;
@@ -88,6 +94,18 @@
 <br>
 <p>声明宽度100%，高度自动。自动随窗口缩小及放大</p>
 <img src="https://www.w3schools.com/css/img_5terre_wide.jpg" class="responsive2" alt="此为网络图片">
+<br>
+<p>
+    当子元素尺寸大于父元素，元素会溢出。可通过max-height/max-width限制子元素最大尺寸
+</p>
+<div id="img">
+    <img src="../resources/images/paris.jpg" alt="">
+</div>
+<div>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ad aliquam, cum dicta error natus rem tempore ut
+        voluptates! Ab assumenda cumque deleniti ea exercitationem expedita labore, laboriosam, nostrum possimus quia,
+        totam ullam.</p>
+</div>
 <hr>
 <h1>CSS Opacity</h1>
 <div class="bg-green op1">opacity 0.1</div>
