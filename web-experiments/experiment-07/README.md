@@ -15,7 +15,7 @@
 ### 实验内容
 创建maven项目experiment-07  
 声明项目打包类型，java版本，Servlet/JSTL/MySQL驱动/Annotation依赖，添加打包插件    
-远程IP：114.116.213.241。视频Remote MySQL Connections
+远程IP：。视频Remote MySQL Connections
  - 基于idea database视图，个人学号/密码登录远程MySQL数据库  
  - 在已经默认创建的以个人学号命名的数据库下，创建数据表user，添加id/name/inserttime数据段，并声明合适类型
  - inserttime段为时间戳类型，默认值为随段信息更新而自动更新  

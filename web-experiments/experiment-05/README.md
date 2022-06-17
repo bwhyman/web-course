@@ -18,7 +18,7 @@
 
 ### 需求+设计提示
 **需求+1**  
-在/WEB-INF/jsp/下，创建login.html登录页面，声明登录form表单，向/login发出请求  
+在/WEB-INF/jsp/下，创建login.html登录页面，声明登录form表单，向login发出请求  
 在/WEB-INF/jsp/下，创建welcome.html页面，声明欢迎文本  
 
 在java目录下，编写java代码  
@@ -27,7 +27,11 @@
 在login.html添加，向/welcome地址请求的超链接  
 基于Tomcat Hot Deploy视频，在调试模式下，部署运行项目至tomcat服务器  
 向login发起请求，正确运行后，浏览器将显式登录页面  
-ctrl+F9在debug运行模式下重新编译/部署项目  
+shift+F9在debug运行模式下重新编译/部署项目  
+
+**理解：servlet上声明的`/`，为部署路径的根。但是对于客户端浏览器来说`/`，为服务器的根，差一个部署路径  
+因此，让客户端浏览器重定向时的路径，必须包含向服务器下的哪一个部署路径下的地址，重定向。
+因此必须动态获取当前项目的部署路径，再拼接请求地址**
 
 ![login](./asserts/login-01.png)
 
@@ -35,11 +39,11 @@ ctrl+F9在debug运行模式下重新编译/部署项目
 在com.entity下，创建User实体类，声明用户姓名/账号/密码等私有属性  
 重写LoginServlet的doPost()方法，获取页面传入的登录账号/密码参数，
 实现当账号/密码为指定字符串时，创建user对象，并将对象添加至session中  
-且，登录成功，重定向到/welcome，即welcome页面；登录失败，重定向到/login，即登录页面  
+且，登录成功，重定向到welcome，即welcome页面；登录失败，重定向到/login，即登录页面  
 
-此时，仍可直接向/welcome地址发送请求  
+此时，仍可直接向welcome地址发送请求  
 
 **需求+1**  
 在com.filter下，创建LoginFilter过滤器，声明排除路径，重写doFilter()方法，判断请求路径是否为排除路径，判断用户是否已登录  
-从而实现，当用户已登录，可以直接发送/welcome请求；未登录，重定向到/login登录  
-关闭/重启服务器(为了清空session)，尝试在登录/未登录状态下，向/welcome请求  
+从而实现，当用户已登录，可以直接发送welcome请求；未登录，重定向到login登录  
+关闭/重启服务器(为了清空session)，尝试在登录/未登录状态下，向welcome请求  

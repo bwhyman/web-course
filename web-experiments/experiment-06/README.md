@@ -11,7 +11,7 @@
 理解在JSP页面使用EL表达式以及JSTL标签的作用与意义  
 
 ### 实验内容
-创建maven Web项目及模块，experiment-07
+创建maven Web项目及模块，experiment-06
 声明项目打包类型，声明java版本，添加Servlet依赖，添加JSTL依赖  
 创建webapp目录，创建WEB-INF安全目录，创建jsp目录  
 entity下的实体类，以及util下的模拟数据类DatabaseUtils可直接复制使用，无需编写。  
