@@ -2,20 +2,25 @@
 ### Overview
 China, Northeast Forestry University, Software Engineering, Web Development Technologies
 
-Web开发技术，是东北林业大学软件工程专业第5学期的一门专业选修课，32+16课时。  
+Web开发技术，是东北林业大学软件工程专业第4学期的一门专业选修课，32+16课时。  
 主讲教师：王波老师
 
-课程基于HTML5/CSS3/JavaScript(ES7+)，讨论基本Web网页设计开发技术。包括：  
+课程基于HTML5/CSS3/JavaScript(ES2019+)，讨论基本Web网页设计开发技术。包括：  
 基本HTML标签；栅格/弹性/响应式等基本布局方式；Card/模态框/浮动按钮等基本网页组件的设计实现；  
-以及Servlet4/JSP/JSTL/JDBC/异步非阻塞Servlet&Filter等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
+以及Servlet/JSP/JSTL/JDBC/异步非阻塞Servlet&Filter等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
+
+### Important Migrations(2022.12.07)
+课程示例迁移到java17+Servlet6.0+tomcat10。  
+servlet-api/annotation-api属于原Java EE规范，更名为Jakarta EE后包路径从`javax.*`，变更为`jakarta.*`。  
+`javax.sql.*`，属于Java SE规范下`java.sql`模块，而非Java EE规范，因此无需变更。  
 
 ### Development Environments
  - Intellij IDEA Ultimate
- - OpenJDK ^11.0
- - MySQL ^8.0
- - Tomcat ^9.0
- - Git ^2.30
- - Chrome ^90
+ - OpenJDK ^17
+ - MySQL ^8
+ - Tomcat ^10
+ - Git ^2.3
+ - Chrome ^100
 
 ### Example Collections
  - /web-examples，课程示例

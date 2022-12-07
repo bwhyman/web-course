@@ -1,8 +1,8 @@
 package com.util;
 
-import javax.annotation.Resource;
-import javax.servlet.ServletContextListener;
-import javax.servlet.annotation.WebListener;
+import jakarta.annotation.Resource;
+import jakarta.servlet.ServletContextListener;
+import jakarta.servlet.annotation.WebListener;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;

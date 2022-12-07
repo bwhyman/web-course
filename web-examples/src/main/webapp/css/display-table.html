@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table1 {
+            display: table;
+            width: 100%;
+            text-align: center;
+        }
+        .table1-header {
+            display: table-row;
+            background: #4caf50;
+        }
+        .table1-header-cell {
+            display: table-cell;
+            font-size: 1.2em;
+            padding: 5px;
+        }
+        .table1-row {
+            display: table-row;
+
+        }
+        .table1-cell {
+            display: table-cell;
+            padding: 5px;
+        }
+        .table1-row:hover {
+            background-color: #f2f2f2;
+        }
+        /*.table1-row:nth-child(odd) {
+            background-color: #f2f2f2;
+        }*/
+    </style>
+</head>
+<body>
+<div>
+    <h2>display-table</h2>
+    <p>
+        相比HTML table标签，基于div容器+display属性的CSS table渲染方式，在多层嵌套渲染时效率高；渲染非表格数据内容(登录)无语义冲突；
+        HTML table标签按整体渲染后加载到dom节点，CSS table方式会逐条渲染。
+        <br>
+        同样，row padding需声明在cell
+    </p>
+    <div>
+        <div style="display: table">
+            <div style="display: table-row">
+                <div style="display:table-row">
+                    <div style="display: table-cell">
+                        table/inline-table
+                    </div>
+                    <div style="display: table-cell">
+                        &lt;table&gt;
+                    </div>
+                </div>
+                <div style="display:table-row">
+                    <div style="display: table-cell">
+                        table-header-group <br>
+                        table-row-group<br>
+                        table-footer-group<br>
+                    </div>
+                    <div style="display: table-cell">
+                        &lt;thead&gt;<br>
+                        &lt;tbody&gt;<br>
+                        &lt;tfoot&gt;<br>
+                    </div>
+                </div>
+                <div style="display:table-row">
+                    <div style="display: table-cell">
+                        table-row
+                    </div>
+                    <div style="display: table-cell">
+                        &lt;tr&gt;
+                    </div>
+                </div>
+                <div style="display:table-row">
+                    <div style="display: table-cell">
+                        table-cell
+                    </div>
+                    <div style="display: table-cell">
+                        &lt;td&gt;/&lt;th&gt;
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="table1">
+    <div class="table1-header">
+        <div class="table1-header-cell">Firstname</div>
+        <div class="table1-header-cell">Lastname</div>
+        <div class="table1-header-cell">Savings</div>
+    </div>
+    <div class="table1-row">
+        <div class="table1-cell">Peter</div>
+        <div class="table1-cell">Griffin</div>
+        <div class="table1-cell">$100</div>
+    </div>
+    <div class="table1-row">
+        <div class="table1-cell">Lois</div>
+        <div class="table1-cell">Griffin</div>
+        <div class="table1-cell">$150</div>
+    </div>
+    <div class="table1-row">
+        <div class="table1-cell">Joe</div>
+        <div class="table1-cell">Swanson</div>
+        <div class="table1-cell">$300</div>
+    </div>
+    <div class="table1-row">
+        <div class="table1-cell">Cleveland</div>
+        <div class="table1-cell">Brown</div>
+        <div class="table1-cell">$250</div>
+    </div>
+</div>
+</body>
+</html>

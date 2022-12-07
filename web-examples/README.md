@@ -1,4 +1,9 @@
 # Web Examples
+### update 2022.12.07
+课程示例迁移到java17+Servlet6.0+tomcat10。  
+servlet-api/annotation-api属于原Java EE规范，更名为Jakarta EE后包路径从`javax.*`，变更为`jakarta.*`。  
+`javax.sql.*`，属于Java SE规范下`java.sql`模块，而非Java EE规范，因此无需变更。
+
 ### update 2020.12.14
 EL/JSTL Examples
 ### update 2020.12.06
