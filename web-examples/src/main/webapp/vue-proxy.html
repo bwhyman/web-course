@@ -6,27 +6,27 @@
 </head>
 <body>
 <span v-text="name"></span> / <span v-text="address"></span> <br>
-<input type="text" id="newName"> <br>
+<input type="text" id="new-name"> <br>
 <button type="button" onclick="change()">change</button>
 </body>
 <script>
-    // 模拟组件setup()函数返回中声明的，预支持响应式的对象
-    let mySetup = () => ({name: "BO", address: "952"});
+    // 模拟组件ref()函数返回中声明的，预支持响应式的对象
+    let myRef = () => ({name: "BO", address: "952"});
     // 仅模拟v-text标签的实现
-    let myAttr = 'v-text'
+    let myAttr = 'v-text';
     // 获取全部包含v-text自定义属性的元素
     let allVText = document.querySelectorAll(`[${myAttr}]`);
-    // 页面初始化渲染时，基于v-text中指定的属性名称，从setup()
+    // 页面初始化渲染时，基于v-text中指定的属性名称，从myRef()
     allVText.forEach(e => {
         let vText = e.getAttribute(myAttr)
-        e.innerHTML = mySetup()[vText];
+        e.innerHTML = myRef()[vText];
     });
 
     // 创建响应式对象的代理对象
     // 重写set()函数，当指定属性被改变时，将视图中所有包含该属性的标签重新渲染
     // set(target, p, value, receiver)
     // target，源对象，被创建代理对象的对象；p，被改变值的属性名称；value，改变的值；receiver，代理对象本身
-    let viewProxy = new Proxy(mySetup(), {
+    let viewProxy = new Proxy(myRef(), {
         set(target, p, value, receiver) {
             // 源数据不会自动更新，必须手动更新源对象中数据
             target[p] = value;
@@ -43,7 +43,7 @@
 
     let change = () => {
         // 当代理对象属性值改变时，回调代理对象的set()函数，激活更新
-        viewProxy.name = document.getElementById("newName").value;
+        viewProxy.name = document.getElementById("new-name").value;
     }
 
 </script>

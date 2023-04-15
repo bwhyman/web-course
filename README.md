@@ -28,7 +28,10 @@ servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径�
  - /web-homeworks，作业示例 
 
 ### Documents
- - [home.md](./home.md)
+ - [开发环境](./home.md)
+
+### Projects
+- [课程设计](./project.md)
  
 ### Course Details
  - https://mooc1-1.chaoxing.com/course/91374545.html

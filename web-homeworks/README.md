@@ -39,18 +39,20 @@ modal-content/modal-footer容器，主内容/页脚区域，字体/按钮组/边
 ### 原理与思路
 难点在于：  
 通过jquery动态改变元素文本内容，从而改变浮动按钮图标  
-通过CSS实现转动较简单，但不利于动态/抽象改变元素文本内容  
-因此需要结合jquery+css共同实现  
+jquery `animate()`动画方法转动图标  
+需要结合jquery+css共同实现  
 
 **布局/样式**  
-fab浮动容器，绝对定位到右上角，内容居中；包含：fab-btn按钮容器，fab-menu容器   
-fab-btn容器，包含浮动按钮图标，颜色/尺寸大小等等；按钮图标最好选用实心图标，空心最好加背景，否则浮动按钮可能不明显  
-fab-menu容器，隐藏。包含列表，每个列表项中超链接，内容为图标    
+fab浮动容器，绝对定位到右上角，内容居中；包含：fab-btn浮动图标，fab-menu列表   
+fab-btn浮动图标，颜色/尺寸大小等等；按钮图标最好选用实心图标，空心最好加背景，否则浮动按钮可能不明显  
+浮动图标元素中声明自定义属性，存储需要切换的图标名称    
+fab-menu列表，隐藏。每个列表项中超链接，内容为图标    
 可声明特定的二级图标样式，例如删除为红色  
 悬浮在fab容器时，按钮图标过渡旋转180度  
 
-jquery
-容器悬浮监听，进入，修改按钮图标，fab-menu渐入；移出，改回按钮图标，fab-menu渐出   
+jquery  
+需要修改/改回图标，动态获取/替换当前图标中的自定义属性值及默认值  
+容器悬浮监听，进入，动画转动图标，修改图标，fab-menu渐入；移出，动画图标归位，改回原图标，fab-menu渐出   
 
 # Homework-04, Navigation Drawer响应式布局
 ### 原理与思路
@@ -76,9 +78,8 @@ jquery
 ![result](./asserts/nav-03.gif)
 
 # Homework-03, Badges布局 
-Google Material Icon，是Google设计提供的一套免费开源的图标库   
-Google官方最新为v4版，用以下v3即可  
-学习使用方法及国内CDN：http://micon.dxbtech.cn/   
+Google Material Icon，是Google设计提供的一套免费开源的图标库  
+学习使用方法及国内CDN：https://www.wp2.cn/material_icons/   
 正确引入css后，声明展示对应的图标
 ### 原理与思路
 **布局**  

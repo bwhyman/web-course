@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .table {
+            display: table;
+            width: 100%;
+            text-align: center;
+        }
+
+        .table-header {
+            display: table-row;
+            background: #4caf50;
+        }
+
+        .table-header-cell {
+            display: table-cell;
+            font-size: 1.2em;
+            padding: 5px;
+        }
+
+        .table-row {
+            display: table-row;
+        }
+
+        .table-cell {
+            display: table-cell;
+            padding: 5px;
+        }
+
+        .table-row:hover {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div>
+        模拟响应式禁选课授课时间冲突的课程。
+    </div>
+    <div class="table" id="course-table">
+        <div class="table-header">
+            <div class="table-header-cell">#</div>
+            <div class="table-header-cell">名称</div>
+            <div class="table-header-cell">学分</div>
+            <div class="table-header-cell">起止周</div>
+            <div class="table-header-cell">时间</div>
+            <div class="table-header-cell">教师</div>
+            <div class="table-header-cell">操作</div>
+        </div>
+    </div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    $(function () {
+        // 初始化并添加数据
+        courses.forEach((c, index) => {
+            let h = `
+                    <div class="table-row">
+                        <div class="table-cell">${index + 1}</div>
+                        <div class="table-cell">${c.name}</div>
+                        <div class="table-cell">${c.point}</div>
+                        <div class="table-cell">${c.startWeek} - ${c.endWeek}</div>
+                        <div class="table-cell">周${c.dayOfWeek} / ${c.period}节</div>
+                        <div class="table-cell">${c.teacherName}</div>
+                        <div class="table-cell"><input type="checkbox" data-courseid="${c.id}"></div>
+                    </div>`;
+            $("#course-table").append(h);
+        });
+
+        // ---------------------------------------
+
+        // 获取全部数据input组件
+        let courseNodes = $("input[data-courseid]");
+        // 缓存课程对应的冲突组件数组，避免反复查询
+        let confMap = new Map();
+
+        courseNodes.click(function () {
+                let courseId = $(this).data("courseid");
+                let confNodes = confMap.get(courseId);
+
+                // 如果缓存中没有，则遍历比较，将jquery对象存入集合，将集合存入map
+                if (!confNodes) {
+                    confNodes = [];
+                    let course = courses.find(c => c.id === courseId);
+                    courses.filter(c => c !== course)
+                        .filter(c => c.dayOfWeek === course.dayOfWeek)
+                        .filter(c => c.period === course.period)
+                        .filter(c => (course.startWeek >= c.startWeek && course.startWeek <= c.endWeek)
+                            || (course.endWeek >= c.startWeek && course.endWeek <= c.endWeek))
+                        .forEach(c => {
+                            // 直接转jquery对象
+                            let confInput = $(`input[data-courseid=${c.id}]`);
+                            let confRow = confInput.parent().parent("[class=table-row]");
+                            // 将input/row均存入
+                            let conflict = {"confInput": confInput, "confRow": confRow};
+                            confNodes.push(conflict);
+                        })
+
+                    // 将集合存入map缓存
+                    confMap.set(course.id, confNodes)
+                }
+                // 选中时
+                if ($(this).prop("checked")) {
+                    // 从缓存获取冲突课程组件，并改变属性
+                    confNodes.forEach(c => {
+                        c.confRow.css("opacity", "0.2");
+                        c.confInput.prop("disabled", true);
+                    })
+                    return;
+                }
+
+                // 取消时，从缓存获取并改回属性
+                confNodes.forEach(c => {
+                    c.confRow.css("opacity", "1.0");
+                    c.confInput.prop("disabled", false);
+                })
+            }
+        )
+    })
+
+    // 模拟课程数据
+    let courses = [
+        {
+            "id": 100,
+            "name": "数据库原理",
+            "term": 4,
+            "point": 3.0,
+            "startWeek": 1,
+            "endWeek": 10,
+            "dayOfWeek": 1,
+            "period": 12,
+            "teacherName": "赵彤彤"
+        },
+        {
+            "id": 101,
+            "name": "Web开发技术",
+            "term": 4,
+            "point": 2.5,
+            "startWeek": 1,
+            "endWeek": 8,
+            "dayOfWeek": 1,
+            "period": 34,
+            "teacherName": "李明"
+        },
+        {
+            "id": 102,
+            "name": "托福阅读",
+            "term": 4,
+            "point": 2.0,
+            "startWeek": 1,
+            "endWeek": 5,
+            "dayOfWeek": 1,
+            "period": 12,
+            "teacherName": "刘勇"
+        },
+        {
+            "id": 103,
+            "name": "高级英语视听",
+            "term": 4,
+            "point": 2.0,
+            "startWeek": 3,
+            "endWeek": 10,
+            "dayOfWeek": 1,
+            "period": 34,
+            "teacherName": "王燕"
+        }
+    ]
+
+</script>
+</body>
+</html>

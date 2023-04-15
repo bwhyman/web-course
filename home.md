@@ -15,84 +15,19 @@ Idea默认包含git可视化操作插件，但并没有集成git本身(eclipse�
 不要修改其他所有过程选项，全部默认即可  
 可查看版本  
 ![image-20201029133736261](images/home/image-20201029133736261.png)  
-### Uninstall Oracle JDK
-统一JDK环境为OpenJDK，卸载安装过的Oracle JDK  
-删除系统环境变量中设置的JAVA_HOME环境变量，以及path路径
 
-### Register IntelliJ IDEA
-### Install IntelliJ IDEA
-###  Maven
-# Optimizing IntelliJ IDEA
-### Code Completion
-### Font Size & Style
+### IntelliJ IDEA
 <span style="color: red">**Idea/maven的安装配置，参照java程序设计课程方法**</span>
 
-# Web Project
 ### Create Web Project
-在合适位置创建工作区目录，存放课程项目文件。  
-例如，D:\workspace-2020    
-创建第一个maven web项目  
-![image-20201029141851518](images/home/image-20201029141851518.png)  
+[Maven Web Project](https://mooc1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=91374545&knowledgeId=368925223)
 
-首次基于idea创建maven项目时，可能需要指定OpenJDK目录  
-![image-20201029141901633](images/home/image-20201029141901633.png)  
+### Delete Project
+参考Java课程示例  
 
-定位到idea目录下的jbr，即可识别最新版idea集成的OpenJDK  
-![image-20201029142035982](images/home/image-20201029142035982.png)  
-Maven项目属性说明  
-Group：开发组织域名反写，确保开发组织的全球唯一性  
-Artifact：本次开发项目名称，确保开发组织下项目的唯一性，从而确保项目的全球唯一性  
-工程名称与artifact保持一致，定位工程位置为工作区  
-![image-20201029142258778](images/home/image-20201029142258778.png)  
+### Cloning Repository
+参考Java课程示例  
 
-选择自动导入maven项目  
-Windows10系统，可能会出现涉及defender配置  
-![image-20201029142406825](images/home/image-20201029142406825.png)  
-
-Maven工程结构。其中pom.xml为自动生成的maven项目配置文件  
-![image-20201029142558814](images/home/image-20201029142558814.png)  
-
-修改pom.xml文件，追加maven项目打包配置声明。即，声明普通maven项目为maven web项目  
-结果。后期涉及java知识时，还需添加配置  
-![image-20201029142640326](images/home/image-20201029142640326.png)  
-
-在src/main下，创建名为webapp的目录。Webapp目录为maven项目默认的网页资源目录，所有HTML等网页资源，必须置于此目录下  
-![image-20201029142656853](images/home/image-20201029142656853.png)  
-![image-20201029142702341](images/home/image-20201029142702341.png)  
-
-在webapp下，创建基于html5名为index的html文件  
-![image-20201029142711268](images/home/image-20201029142711268.png)  
-![image-20201029142715329](images/home/image-20201029142715329.png)  
-
-在index.html输入代码  
-
-```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-<h1>hello world</h1>
-</body>
-</html>
-```
-当鼠标悬停在html文档，可显示直接运行的浏览器  
-![image-20201029142749725](images/home/image-20201029142749725.png)  
-运行查看结果  
-![image-20201029142758343](images/home/image-20201029142758343.png)
-
-## Delete Project
-关闭当前项目，返回welcome页面  
-![image-20201029142823300](images/home/image-20201029142823300.png)  
-
-移除项目，此时仅在idea中移除了项目，并没有在磁盘删除项目文件  
-![image-20201029142832435](images/home/image-20201029142832435.png)  
-**在工作区目录，手动删除项目目录**
-
-# Cloning Repository
-### Clone
 为便于学习，课程通过创建一个项目(project)，在项目中创建若干模块(module)实现。因此，仅需从github clone一次项目，每次拉取更新即可。  
 可以在此项目中创建自己的学习测试module，不会影响到课程代码
 
