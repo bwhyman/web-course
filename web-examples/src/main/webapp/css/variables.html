@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        /* 相当于HTML元素 */
+        :root {
+            --font-color: red;
+            --nav-width: 200px;
+        }
+        div.responsive-font {
+            color: var(--font-color);
+        }
+
+        @media (max-width: 600px) {
+            :root {
+                --font-color: blue;
+            }
+        }
+
+        div.var-fixed {
+            position: fixed;
+            border: 1px solid red;
+            width: var(--nav-width);
+        }
+        div.var-main {
+            border: 1px solid red;
+            margin-left: calc(var(--nav-width) + 20px);
+        }
+
+
+    </style>
+</head>
+<body>
+<div class="responsive-font">
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deleniti eligendi fugit ipsam laborum, odit quidem
+    similique. Aspernatur ea ex quidem voluptas? Accusantium enim eveniet itaque nostrum pariatur veniam. Ducimus facere
+    non tempore.
+</div>
+<div style="margin-top: 50px">
+    <div class="var-fixed">
+        Left Nav
+    </div>
+    <div class="var-main">
+        main
+    </div>
+</div>
+
+</body>
+</html>

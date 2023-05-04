@@ -10,21 +10,25 @@
 理解并掌握上导航、边侧栏的实现方法及设计思想  
 
 ### 实验内容
-创建maven Web项目及模块，experiment-03，项目打包类型为war
-在src/main下，创建webapp目录
-在webapp目录下，创建layout.html文件，基于给定HTML代码实现页面布局设计，允许添加class等属性引入css样式
+创建maven Web项目及模块，experiment-03，项目打包类型为war   
+在src/main下，创建webapp目录   
+在webapp目录下，创建layout.html文件，基于给定HTML代码实现页面布局设计，允许添加class等属性引入css样式  
 
 ### 需求+设计提示 
 为各部分区域设计统一样式；全局取消元素内外边距，按box尺寸计算   
+
 **需求0**  
-基于当前HTML代码，弹性栅格布局页面。header/footer占1行；main中sidebar最小宽度200px；article占剩余全部。
-行中空间不足元素不换行，由响应式布局决定小尺寸显式效果
+基于当前HTML代码，按12栅格布局页面。  
+Container根容器居中最大宽度960px  
+Row弹性行容器  
+header/footer各占1行12列   
+main中sidebar占3列；article占9列。  
 
 **上导航+1**  
-于弹性布局，为header中的上导航添加背景色/悬浮字体颜色等样式，且将logout推至最右侧
+header中声明上导航，添加背景色/悬浮字体颜色等样式，且将logout推至最右侧  
 
 **页脚+1**  
-元素居中，字体居中
+元素居中
 
 **左侧边栏+1**  
 为左侧边栏添加样式，添加背景色/字体色/悬浮等等样式

@@ -9,10 +9,11 @@
             width: 200px;
             box-sizing: border-box;
         }
-        #sidebar1 ul {
+        #sidebar1 > ul {
             /* 取消内边距，使li横向撑满ul */
             padding: 0;
             background: #f1f1f1;
+            list-style: none;
         }
         #sidebar1 a {
             /* 使超链接撑满li */
@@ -38,7 +39,7 @@
             /* 取消标题默认的外边距，否则无法与列表完全贴上 */
             margin: 0;
         }
-        #sidebar2 h2 a {
+        #sidebar2 > h2 > a {
             display: block;
             background: #3185bf;
             color: white;
@@ -50,6 +51,7 @@
             margin: 0;
             padding: 0;
             background: #f1f1f1;
+            list-style: none;
         }
         #sidebar2 li a {
             display: block;
@@ -115,8 +117,6 @@
         <li><a href="#">About</a></li>
         <li><a href="#">Logout</a></li>
     </ul>
-</div>
-
 </div>
 </body>
 </html>

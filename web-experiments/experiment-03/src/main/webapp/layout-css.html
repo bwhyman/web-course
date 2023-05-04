@@ -4,11 +4,15 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        /* ------------- 通用 ------------- */
+        /* ------------- 基础 ------------- */
         * {
             padding: 0;
             margin: 0;
             box-sizing: border-box;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
         }
         .area {
             padding: 10px;
@@ -20,22 +24,19 @@
             display: flex;
             align-items: flex-start;
         }
-        .row .grow-1 {
-            flex-grow: 1;
-        }
         /* ------ header ------- */
-        .nav ul {
+        .nav {
             display: flex;
             background: #333;
             list-style: none;
         }
-        .nav ul a {
+        .nav a {
             color: white;
             text-decoration: none;
             display: block;
             padding: 15px 25px;
         }
-        .nav ul a:hover {
+        .nav a:hover {
             background-color: #111;
         }
         .nav .right {
@@ -69,7 +70,6 @@
             transform: scale(1.1);
         }
         .footer {
-            margin: auto;
             text-align: center;
         }
         /*-------- 12栅格 -----------  */
@@ -91,8 +91,8 @@
 <div class="container">
     <!-- header -->
     <div class="area row">
-        <div class="col-md-12 nav">
-            <ul>
+        <div class="col-md-12">
+            <ul class="nav">
                 <li><a href="#">Home</a></li>
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact</a></li>
@@ -104,7 +104,7 @@
     <!-- main  -->
     <div class="area row">
         <!-- sidebar -->
-        <div class="area sidebar">
+        <div class="area col-md-3 sidebar">
             <div class="sidebar-group">
                 <h2>云技术管理</h2>
                 <ul>
@@ -124,23 +124,23 @@
             </div>
         </div>
         <!-- article -->
-        <div class="area grow-1">
+        <div class="area col-md-9">
             <h1>设计内容</h1>
             <p>为各部分区域设计统一样式；全局取消元素内外边距，按box尺寸计算</p>
             <h3>需求0</h3>
-            <p>基于当前HTML代码，弹性栅格布局页面。header/footer占1行；main中sidebar最小宽度200px；article占剩余全部。
-                行中空间不足元素不换行，由响应式布局决定小尺寸显式效果</p>
+            <p>基于当前HTML代码，按12栅格布局页面。Container根容器居中最大宽度960px；Row弹性行容器；
+                header/footer各占1行12列；main中sidebar占3列；article占9列。</p>
             <h3>上导航+1</h3>
-            <p>基于弹性布局，为header中的上导航添加背景色/悬浮字体颜色等样式，且将logout推至最右侧</p>
+            <p>header中声明上导航，添加背景色/悬浮字体颜色等样式，且将logout推至最右侧</p>
             <h3>页脚+1</h3>
-            <p>元素居中，字体居中</p>
+            <p>元素居中</p>
             <h3>左侧边栏+1</h3>
             <p>为左侧边栏添加样式，添加背景色/字体色/悬浮等等样式</p>
         </div>
     </div>
     <!-- footer -->
-    <div class="area footer row">
-        <div class="col-md-12">
+    <div class="area row">
+        <div class="col-md-12 footer">
             <p>东北林业大学<br>
                 软件工程专业 2046&copy;</p>
         </div>
