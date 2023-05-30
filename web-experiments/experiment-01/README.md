@@ -29,4 +29,4 @@
 提交、重置，按钮。需声明正确的类型  
 
 通过idea运行浏览器，查看结果  
-![注册截图](https://raw.githubusercontent.com/bwhyman/web-course/689dd619bd18677ae8c872ab9e677847fb81ec29/experiment-01/01.PNG)
+![注册截图](./asserts/01.png)

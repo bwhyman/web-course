@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
         .table {
             display: table;
             width: 100%;
@@ -67,7 +72,8 @@
                         <div class="table-cell">周${c.dayOfWeek} / ${c.period}节</div>
                         <div class="table-cell">${c.teacherName}</div>
                         <div class="table-cell"><input type="checkbox" data-courseid="${c.id}"></div>
-                    </div>`;
+                    </div>
+                    `;
             $("#course-table").append(h);
         });
 
@@ -82,7 +88,7 @@
                 let courseId = $(this).data("courseid");
                 let confNodes = confMap.get(courseId);
 
-                // 如果缓存中没有，则遍历比较，将jquery对象存入集合，将集合存入map
+                // 如果缓存中没有，则遍历比较，将jquery对象存入数组，将数组存入map
                 if (!confNodes) {
                     confNodes = [];
                     let course = courses.find(c => c.id === courseId);
@@ -94,9 +100,10 @@
                         .forEach(c => {
                             // 直接转jquery对象
                             let confInput = $(`input[data-courseid=${c.id}]`);
-                            let confRow = confInput.parent().parent("[class=table-row]");
+                            // 获取checkbox父节点段，的父节点，行
+                            let confRow = confInput.parent().parent();
                             // 将input/row均存入
-                            let conflict = {"confInput": confInput, "confRow": confRow};
+                            let conflict = {confInput: confInput, confRow: confRow};
                             confNodes.push(conflict);
                         })
 
@@ -127,46 +134,52 @@
         {
             "id": 100,
             "name": "数据库原理",
-            "term": 4,
             "point": 3.0,
             "startWeek": 1,
             "endWeek": 10,
             "dayOfWeek": 1,
             "period": 12,
-            "teacherName": "赵彤彤"
+            "teacherName": "谭文韬"
         },
         {
             "id": 101,
             "name": "Web开发技术",
-            "term": 4,
             "point": 2.5,
             "startWeek": 1,
             "endWeek": 8,
             "dayOfWeek": 1,
             "period": 34,
-            "teacherName": "李明"
+            "teacherName": "徐懿"
         },
         {
             "id": 102,
             "name": "托福阅读",
-            "term": 4,
             "point": 2.0,
             "startWeek": 1,
             "endWeek": 5,
             "dayOfWeek": 1,
             "period": 12,
-            "teacherName": "刘勇"
+            "teacherName": "李景阳"
         },
         {
             "id": 103,
             "name": "高级英语视听",
-            "term": 4,
             "point": 2.0,
             "startWeek": 3,
             "endWeek": 10,
             "dayOfWeek": 1,
             "period": 34,
-            "teacherName": "王燕"
+            "teacherName": "龙超悦"
+        },
+        {
+            "id": 104,
+            "name": "Web系统框架",
+            "point": 2.5,
+            "startWeek": 10,
+            "endWeek": 17,
+            "dayOfWeek": 1,
+            "period": 12,
+            "teacherName": "王子阳"
         }
     ]
 

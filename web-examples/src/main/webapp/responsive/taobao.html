@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Title</title>
+    <style>
+        :root {
+            --col-1: 8.33333333%;
+            --col-2: 16.66666667%;
+            --col-3: 25%;
+            --col-4: 33.33333333%;
+            --col-5: 41.66666667%;
+            --col-6: 50%;
+            --col-7: 58.33333333%;
+            --col-8: 66.66666667%;
+            --col-9: 75%;
+            --col-10: 83.33333333%;
+            --col-11: 91.66666667%;
+            --col-12: 100%;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* 测试用的区域样式 */
+        .area {
+            padding: 10px;
+            border: 2px solid #f08c00;
+            background-color: #ffec99;
+            border-radius: 5px;
+        }
+
+        /* 顶级容器 */
+        .container {
+            border: 1px solid red;
+            max-width: var(--container-width);
+            margin: auto;
+            /* 默认高度最小一屏 */
+            min-height: 100vh;
+        }
+
+        /* 全局弹性布局的，行容器 */
+        .row {
+            display: flex;
+            /* 超出项自动换行，从而实现响应式布局 */
+            flex-wrap: wrap;
+            /* 弹性项上对齐，纵向不拉伸 */
+            align-items: flex-start;
+        }
+        .category {
+            display: var(--category-display);
+        }
+        .card-item {
+            display: flex;
+            border-radius: 5px;
+            background: gainsboro;
+            margin: 10px;
+        }
+        .card-item-link {
+            text-decoration: none;
+            color: #000;
+        }
+        .card-item-link:hover > .card-item {
+            background: white;
+        }
+        .card-item-img {
+            margin: 5px;
+            flex-basis: 40%;
+            width: 150px;
+        }
+        .card-item-img > img {
+            width: 100%;
+            height: 100%;
+            border-radius: 12px;
+        }
+        .card-item-info {
+            margin: 5px;
+            flex-basis: 60%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        @media (min-width: 200px) {
+            :root {
+                --container-width: 960px;
+                --category-display: none;
+            }
+
+            .col-sm-1 {
+                width: var(--col-1);
+            }
+
+            .col-sm-2 {
+                width: var(--col-2);
+            }
+
+            .col-sm-3 {
+                width: var(--col-3);
+            }
+
+            .col-sm-4 {
+                width: var(--col-4);
+            }
+
+            .col-sm-5 {
+                width: var(--col-5);
+            }
+
+            .col-sm-6 {
+                width: var(--col-6);
+            }
+
+            .col-sm-7 {
+                width: var(--col-7);
+            }
+
+            .col-sm-8 {
+                width: var(--col-8);
+            }
+
+            .col-sm-9 {
+                width: var(--col-9);
+            }
+
+            .col-sm-10 {
+                width: var(--col-10);
+            }
+
+            .col-sm-11 {
+                width: var(--col-12);
+            }
+
+            .col-sm-12 {
+                width: var(--col-12);
+            }
+        }
+
+        /* 当大于等于992px时 */
+        @media (min-width: 1207px) {
+            :root {
+                --container-width: 1170px;
+                --category-display: block;
+            }
+
+            /* 分12列 */
+            .col-md-1 {
+                width: var(--col-1);
+            }
+
+            .col-md-2 {
+                width: var(--col-2);
+            }
+
+            .col-md-3 {
+                width: var(--col-3);
+            }
+
+            .col-md-4 {
+                width: var(--col-4);
+            }
+
+            .col-md-5 {
+                width: var(--col-5);
+            }
+
+            .col-md-6 {
+                width: var(--col-6);
+            }
+
+            .col-md-7 {
+                width: var(--col-7);
+            }
+
+            .col-md-8 {
+                width: var(--col-8);
+            }
+
+            .col-md-9 {
+                width: var(--col-9);
+            }
+
+            .col-md-10 {
+                width: var(--col-10);
+            }
+
+            .col-md-11 {
+                width: var(--col-11);
+            }
+
+            .col-md-12 {
+                width: var(--col-12);
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="area category col-md-3">
+            分类
+        </div>
+        <div class="area carousel col-md-6 col-sm-7" style="min-height: 200px">
+            轮播图
+        </div>
+        <div class="area info col-md-3 col-sm-5">
+            个人信息
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>猜你喜欢</h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4 col-sm-6 row">
+                <div class="card-item">
+                    <div class="card-item-img">
+                        <img src="https://picsum.photos/200/200/?random=3" alt="">
+                    </div>
+                    <div class="card-item-info">
+                        <div class="card-item-info-title">
+                            徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
+                        </div>
+                        <div class="card-item-info-price">$24.9</div>
+                    </div>
+                </div>
+        </div>
+        <div class="col-md-4 col-sm-6 row">
+            <div class="card-item">
+                <div class="card-item-img">
+                    <img src="https://picsum.photos/200/200/?random=3" alt="">
+                </div>
+                <div class="card-item-info">
+                    <div class="card-item-info-title">
+                        徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
+                    </div>
+                    <div class="card-item-info-price">$24.9</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4 col-sm-6 row">
+            <div class="card-item">
+                <div class="card-item-img">
+                    <img src="https://picsum.photos/200/200/?random=3" alt="">
+                </div>
+                <div class="card-item-info">
+                    <div class="card-item-info-title">
+                        徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
+                    </div>
+                    <div class="card-item-info-price">$24.9</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
