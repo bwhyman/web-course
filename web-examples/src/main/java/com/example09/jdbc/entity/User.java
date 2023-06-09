@@ -1,4 +1,4 @@
-package com.example09.jdbc;
+package com.example09.jdbc.entity;
 
 import java.util.Date;
 

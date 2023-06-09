@@ -4,5 +4,5 @@
 		maxTotal="100" maxIdle="30" maxWaitMillis="10000" initialSize="1"
 		username="2046204600" password="2046204600"
 		driverClassName="com.mysql.cj.jdbc.Driver"
-		url="jdbc:mysql://124.70.17.73:3306/2046204600?serverTimezone=Asia/Shanghai" />
+		url="jdbc:mysql://114.116.203.165:3306/2046204600?serverTimezone=Asia/Shanghai" />
 </Context>
