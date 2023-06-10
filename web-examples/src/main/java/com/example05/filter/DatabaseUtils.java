@@ -1,5 +1,7 @@
 package com.example05.filter;
 
+import com.datasource.entity.User;
+
 import java.time.LocalDateTime;
 
 public class DatabaseUtils {

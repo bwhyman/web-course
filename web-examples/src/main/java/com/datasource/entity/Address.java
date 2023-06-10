@@ -1,4 +1,4 @@
-package com.example06;
+package com.datasource.entity;
 
 public class Address {
     private String detail;

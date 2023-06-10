@@ -1,7 +1,7 @@
 package com.example10.ajax;
 
 import com.datasource.DatabaseUtils;
-import com.datasource.Title;
+import com.datasource.entity.Title;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

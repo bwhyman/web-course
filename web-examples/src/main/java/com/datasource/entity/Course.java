@@ -1,4 +1,4 @@
-package com.datasource;
+package com.datasource.entity;
 
 import java.util.Date;
 

@@ -1,7 +1,8 @@
 package com.example04;
 
+import com.datasource.entity.User;
+
 import java.time.LocalDateTime;
-import java.util.Optional;
 
 public class DatabaseUtils {
     public static User getUser(String userName, String password) {

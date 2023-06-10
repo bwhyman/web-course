@@ -1,5 +1,7 @@
 package com.example06;
 
+import com.datasource.entity.Address;
+import com.datasource.entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;

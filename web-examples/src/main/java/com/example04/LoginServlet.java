@@ -1,15 +1,12 @@
 package com.example04;
 
-import com.example04.DatabaseUtils;
-import com.example04.User;
-
+import com.datasource.entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.util.Optional;
 
 @WebServlet("/example04/login")
 public class LoginServlet extends HttpServlet {

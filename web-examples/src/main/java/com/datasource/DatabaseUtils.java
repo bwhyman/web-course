@@ -1,5 +1,9 @@
 package com.datasource;
 
+import com.datasource.entity.Course;
+import com.datasource.entity.Teacher;
+import com.datasource.entity.Title;
+
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;

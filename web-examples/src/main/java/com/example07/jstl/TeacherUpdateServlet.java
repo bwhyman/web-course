@@ -1,8 +1,8 @@
 package com.example07.jstl;
 
-import com.datasource.Course;
+import com.datasource.entity.Course;
 import com.datasource.DatabaseUtils;
-import com.datasource.Teacher;
+import com.datasource.entity.Teacher;
 
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;

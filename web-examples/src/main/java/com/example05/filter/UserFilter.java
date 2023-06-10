@@ -1,17 +1,20 @@
 package com.example05.filter;
 
+import com.datasource.entity.User;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebFilter;
 import jakarta.servlet.http.HttpFilter;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+
 import java.io.IOException;
 import java.util.List;
 
 @WebFilter("/filter/*")
 public class UserFilter extends HttpFilter {
     private final List<String> excludes = List.of("/filter/login");
+
     @Override
     protected void doFilter(HttpServletRequest req, HttpServletResponse res, FilterChain chain) throws IOException, ServletException {
         // 基于请求的地址，判断是否需要排除
@@ -27,9 +30,10 @@ public class UserFilter extends HttpFilter {
         if (user != null) {
             // 存在，允许继续访问
             chain.doFilter(req, res);
-        } else {
-            // 不存在，重定向到登录页面
-            res.sendRedirect(req.getContextPath()+ "/filter/login");
+            return;
         }
+        // 不存在，重定向到登录页面
+        res.sendRedirect(req.getContextPath() + "/filter/login");
+
     }
 }

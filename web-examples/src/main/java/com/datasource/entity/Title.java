@@ -1,4 +1,4 @@
-package com.datasource;
+package com.datasource.entity;
 
 public class Title {
     private int id;
