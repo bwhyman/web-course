@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <c:url  var="base" value="/" />
+    <c:url var="base" value="/"/>
     <base href="${base}">
     <meta charset="UTF-8">
     <title>Title</title>
@@ -152,9 +152,9 @@
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">About</a></li>
                 <li class="right">
-                    <c:set var="msg" value="Login" />
+                    <c:set var="msg" value="Login"/>
                     <c:if test="${sessionScope.user != null}">
-                        <c:set var="msg" value="欢迎回来，${sessionScope.user.name}" />
+                        <c:set var="msg" value="欢迎回来，${sessionScope.user.name}"/>
                     </c:if>
                     <a href="#">${msg}</a>
                 </li>
@@ -190,15 +190,19 @@
         <!-- article -->
         <div class="area col-md-9">
             <h1>设计内容</h1>
-            <p>未登录，无侧边栏；header无用户名；<br>
+            <div>未登录，无侧边栏；header无用户名；<br>
                 user权限，有普通功能操作权限及用户名；<br>
-                admin权限，更多功能。</p>
-            <p>
-                <a href="jstl/httpsession">未登录</a> <br>
-                <a href="jstl/httpsession?role=1">user普通用户权限</a> <br>
-                <a href="jstl/httpsession?role=5">admin管理员权限</a> <br>
-            </p>
-
+                admin权限，更多功能。
+            </div>
+            <hr>
+            <div>
+                账号：user/admin
+                <form action="httpsession/login" method="post">
+                    <input type="text" name="username">
+                    <button type="submit">登录</button>
+                </form>
+                    <a href="httpsession/logout">Logout</a>
+            </div>
         </div>
     </div>
     <!-- footer -->
