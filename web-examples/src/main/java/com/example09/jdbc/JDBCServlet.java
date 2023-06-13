@@ -1,6 +1,6 @@
 package com.example09.jdbc;
 
-import com.example09.jdbc.entity.User;
+import com.datasource.entity.User;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
@@ -11,6 +11,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -27,7 +28,7 @@ public class JDBCServlet extends HttpServlet {
                     User user = new User();
                     user.setId(rs.getInt("id"));
                     user.setName(rs.getString("name"));
-                    user.setInsertTime(rs.getTimestamp("inserttime"));
+                    user.setInsertTime(rs.getObject("insert_time", LocalDateTime.class));
                     users.add(user);
                 }
             }

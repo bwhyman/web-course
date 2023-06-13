@@ -6,12 +6,14 @@ public class User {
     public static final int ADMIN = 5;
     public static final int USER = 1;
 
+    private Integer id;
     private String userName;
     private String password;
     private Integer role;
     private String name;
     private Address address;
     private LocalDateTime loginTime;
+    private LocalDateTime insertTime;
 
     public User() {
     }
@@ -72,5 +74,21 @@ public class User {
 
     public void setAddress(Address address) {
         this.address = address;
+    }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public LocalDateTime getInsertTime() {
+        return insertTime;
+    }
+
+    public void setInsertTime(LocalDateTime insertTime) {
+        this.insertTime = insertTime;
     }
 }

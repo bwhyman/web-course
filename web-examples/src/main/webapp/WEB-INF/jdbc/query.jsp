@@ -1,5 +1,6 @@
+<jsp:useBean id="user" scope="request" type="com.datasource.entity.User"/>
 <%@ page pageEncoding="UTF-8"%>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,6 +10,6 @@
 <body>
 用户id：${user.id } <br>
 用户名称：${user.name } <br>
-注册时间：${user.insertTime}
+注册时间：${user.insertTime }
 </body>
 </html>

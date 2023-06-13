@@ -1,3 +1,4 @@
+<jsp:useBean id="user" scope="request" type="com.datasource.entity.User"/>
 <%@ page pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">

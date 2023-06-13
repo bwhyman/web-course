@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:useBean id="titles" scope="request" type="java.util.List<com.datasource.entity.Title>"/>
 <p>
     基于职称查询教师： <br>
     <select name="title">

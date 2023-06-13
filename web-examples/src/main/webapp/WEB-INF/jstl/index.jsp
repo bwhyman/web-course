@@ -1,6 +1,7 @@
 <%@ page pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<jsp:useBean id="users" scope="request" type="java.util.List<com.datasource.entity.User>"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -36,6 +37,7 @@
 <hr>
 <h1>c:foreach</h1>
 <ul>
+
     <c:forEach items="${users }" var="u">
         <li>${u.name }</li>
     </c:forEach>
