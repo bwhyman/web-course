@@ -7,8 +7,10 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.entity.User;
 import com.util.DataSourceUtils;
 
@@ -24,11 +26,11 @@ public class IndexServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = new ArrayList<>();
         String sql = "select * from user";
-        try(Connection conn = DataSourceUtils.getConnection();
-            PreparedStatement st = conn.prepareStatement(sql);
-            ResultSet rs = st.executeQuery()) {
+        try (Connection conn = DataSourceUtils.getConnection();
+             PreparedStatement st = conn.prepareStatement(sql);
+             ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
-                User user = new User(rs.getInt("id"), rs.getString("name"), rs.getTimestamp("inserttime"));
+                User user = new User(rs.getString("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
                 users.add(user);
             }
         } catch (SQLException throwables) {

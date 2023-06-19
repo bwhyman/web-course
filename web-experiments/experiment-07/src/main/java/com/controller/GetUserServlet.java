@@ -13,6 +13,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 
 @WebServlet("/getuser")
 public class GetUserServlet extends HttpServlet {
@@ -26,9 +27,9 @@ public class GetUserServlet extends HttpServlet {
             try (ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
                     user = new User();
-                    user.setId(rs.getInt("id"));
+                    user.setId(rs.getString("id"));
                     user.setName(rs.getString("name"));
-                    user.setInsertTime(rs.getTimestamp("inserttime"));
+                    user.setInsertTime(rs.getObject("insert_time", LocalDateTime.class));
                 }
             }
         } catch (SQLException throwables) {

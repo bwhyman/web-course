@@ -1,5 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<jsp:useBean id="users" scope="request" type="java.util.List<com.entity.User>"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>

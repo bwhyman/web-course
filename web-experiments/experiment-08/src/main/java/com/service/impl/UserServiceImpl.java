@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -34,7 +35,7 @@ public class UserServiceImpl implements UserService {
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
-                User user = new User(rs.getInt("id"), rs.getString("name"), rs.getTimestamp("inserttime"));
+                User user = new User(rs.getString("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -44,15 +45,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(int id) {
+    public User getUser(String id) {
         User user = null;
         String sql = "SELECT * FROM user WHERE id=?";
         try(Connection conn = DataSourceUtils.getConnection();
             PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setInt(1, id);
+            st.setString(1, id);
             try(ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
-                    user = new User(rs.getInt("id"), rs.getString("name"), rs.getTimestamp("inserttime"));
+                    user = new User(rs.getString("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
                 }
             }
         } catch (SQLException e) {

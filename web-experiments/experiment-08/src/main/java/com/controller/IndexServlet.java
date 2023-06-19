@@ -12,7 +12,7 @@ import java.io.IOException;
 
 @WebServlet("/index")
 public class IndexServlet extends HttpServlet {
-    private UserService userService = ServiceFactory.getUserService();
+    private final UserService userService = ServiceFactory.getUserService();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         req.setAttribute("users", userService.listUsers());
