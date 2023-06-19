@@ -26,7 +26,7 @@ public class JDBCServlet extends HttpServlet {
             try (ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
                     User user = new User();
-                    user.setId(rs.getInt("id"));
+                    user.setId(rs.getString("id"));
                     user.setName(rs.getString("name"));
                     user.setInsertTime(rs.getObject("insert_time", LocalDateTime.class));
                     users.add(user);

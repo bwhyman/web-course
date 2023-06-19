@@ -6,7 +6,7 @@ public class User {
     public static final int ADMIN = 5;
     public static final int USER = 1;
 
-    private Integer id;
+    private String id;
     private String userName;
     private String password;
     private Integer role;
@@ -76,11 +76,11 @@ public class User {
         this.address = address;
     }
 
-    public Integer getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(String id) {
         this.id = id;
     }
 
