@@ -63,7 +63,7 @@
     $(function () {
         // 初始化并添加数据
         courses.forEach((c, index) => {
-            let h = `
+            const h = `
                     <div class="table-row">
                         <div class="table-cell">${index + 1}</div>
                         <div class="table-cell">${c.name}</div>
@@ -80,18 +80,18 @@
         // ---------------------------------------
 
         // 获取全部数据input组件
-        let courseNodes = $("input[data-courseid]");
+        const courseNodes = $("input[data-courseid]");
         // 缓存课程对应的冲突组件数组，避免反复查询
-        let confMap = new Map();
+        const confMap = new Map();
 
         courseNodes.click(function () {
-                let courseId = $(this).data("courseid");
+                const courseId = $(this).data("courseid");
                 let confNodes = confMap.get(courseId);
 
                 // 如果缓存中没有，则遍历比较，将jquery对象存入数组，将数组存入map
                 if (!confNodes) {
                     confNodes = [];
-                    let course = courses.find(c => c.id === courseId);
+                    const course = courses.find(c => c.id === courseId);
                     courses.filter(c => c !== course)
                         .filter(c => c.dayOfWeek === course.dayOfWeek)
                         .filter(c => c.period === course.period)
@@ -99,38 +99,29 @@
                             || (course.endWeek >= c.startWeek && course.endWeek <= c.endWeek))
                         .forEach(c => {
                             // 直接转jquery对象
-                            let confInput = $(`input[data-courseid=${c.id}]`);
-                            // 获取checkbox父节点段，的父节点，行
-                            let confRow = confInput.parent().parent();
+                            const confInput = $(`input[data-courseid=${c.id}]`);
+                            // 获取checkbox父节点，的父节点。即所在行
+                            const confRow = confInput.parent().parent();
                             // 将input/row均存入
-                            let conflict = {confInput: confInput, confRow: confRow};
+                            const conflict = {confInput: confInput, confRow: confRow};
                             confNodes.push(conflict);
                         })
 
-                    // 将集合存入map缓存
+                    // 将对象存入map缓存
                     confMap.set(course.id, confNodes)
                 }
-                // 选中时
-                if ($(this).prop("checked")) {
-                    // 从缓存获取冲突课程组件，并改变属性
-                    confNodes.forEach(c => {
-                        c.confRow.css("opacity", "0.2");
-                        c.confInput.prop("disabled", true);
-                    })
-                    return;
-                }
-
-                // 取消时，从缓存获取并改回属性
+                // 判断选中/取消状态
+                const ch = $(this).prop("checked");
                 confNodes.forEach(c => {
-                    c.confRow.css("opacity", "1.0");
-                    c.confInput.prop("disabled", false);
+                    c.confInput.prop("disabled", ch);
+                    c.confRow.css("opacity", ch ? 0.2 : 1.0);
                 })
             }
         )
     })
 
     // 模拟课程数据
-    let courses = [
+    const courses = [
         {
             "id": 100,
             "name": "数据库原理",
