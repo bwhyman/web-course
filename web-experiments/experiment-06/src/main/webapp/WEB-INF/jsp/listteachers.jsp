@@ -1,6 +1,6 @@
 <%@ page pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<%@ taglib prefix="fmt" uri="jakarta.tags.fmt" %>
+<jsp:useBean id="teachers" scope="request" type="java.util.List<com.entity.Teacher>"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,9 +20,7 @@
         <tr>
             <td>${s.count }</td>
             <td><a href="updateteacher?tid=${t.id }">${t.name }</a></td>
-            <td><fmt:formatDate
-                    pattern="yyyy-MM-dd HH:mm"
-                    value="${t.insertDate}"/></td>
+            <td>${t.insertDate}</td>
         </tr>
     </c:forEach>
 </table>
