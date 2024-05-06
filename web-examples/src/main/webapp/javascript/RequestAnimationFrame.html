@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="container">
+    <h1>requestAnimationFrame()</h1>
+    <div>
+        <p>
+            <a href="https://developer.mozilla.org/zh-CN/docs/Web/API/Window/requestAnimationFrame" target="_blank">
+                API/Window/requestAnimationFrame
+            </a>
+            <br>
+            window.requestAnimationFrame()
+            告诉浏览器——你希望执行一个动画，并且要求浏览器在下次重绘之前调用指定的回调函数更新动画。
+            该方法需要传入一个回调函数作为参数，该回调函数会在浏览器下一次重绘之前执行。
+        </p>
+        <p>
+            与setTimeout相比，requestAnimationFrame最大的优势是由系统来决定回调函数的执行时机。
+            具体一点讲，如果屏幕刷新率是60Hz,那么回调函数就每16.7ms被执行一次，如果刷新率是75Hz，
+            那么这个时间间隔就变成了1000/75=13.3ms，换句话说就是，requestAnimationFrame的步伐跟着系统的刷新步伐走。
+            它能保证回调函数在屏幕每一次的刷新间隔中只被执行一次，这样就不会引起丢帧现象，也不会导致动画出现卡顿的问题。
+        </p>
+    </div>
+    <div>
+        <button onclick="move()">Move</button>
+        <button onclick="stop()">Stop</button>
+        <br>
+        <div id="move"
+             style="display: inline-block; width: 100px; height: 100px; background:red; position: absolute;"></div>
+    </div>
+</div>
+<script>
+    const element = document.getElementById('move')
+    let animation
+    let left = 0
+    let forward = true
+    const move = () => {
+        if (left >= window.innerWidth - 100) {
+            forward = false
+        } else if (left <= 0) {
+            forward = true
+        }
+
+        left = forward ? left += 10 : left -= 10
+        element.style.left = `${left}px`
+        animation = window.requestAnimationFrame(move)
+    }
+
+    const stop = () => {
+        window.cancelAnimationFrame(animation)
+    }
+</script>
+</body>
+</html>

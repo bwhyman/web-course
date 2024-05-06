@@ -77,10 +77,11 @@ jquery
 **需求+1**  
 ![result](./asserts/nav-03.gif)
 
-# Homework-03, Badges布局 
+# Homework-03, Badges布局
 Google Material Icon，是Google设计提供的一套免费开源的图标库  
 学习使用方法及国内CDN：https://www.wp2.cn/material_icons/   
 正确引入css后，声明展示对应的图标
+
 ### 原理与思路
 **布局**  
 badge整体容器，包含：badge-content容器，badge-wrapper容器  
@@ -94,6 +95,7 @@ badge-wrapper容器，定位在badge整体容器右上角；背景色/字体色/
 badge-wrapper容器如何变成圆形？数字叠加在图标上，有一圈白色空间？
 
 ![result](./asserts/badge-01.PNG)
+
 # Homework-02, Card弹性列表布局
 掌握以上给定的HTML布局方法，最后一次提供HTML布局，下次作业的HTML布局代码也自己写了   
 基于Card设计模式，实现图片描述布局样式      

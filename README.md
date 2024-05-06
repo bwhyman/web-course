@@ -2,11 +2,11 @@
 ### Overview
 China, Northeast Forestry University, Software Engineering, Web Development Technologies
 
-Web开发技术，是东北林业大学软件工程专业第4学期的一门专业选修课，32+16课时。  
+Web开发技术，是东北林业大学软件工程专业第4学期的一门专业选修课，32+16学时。  
 主讲教师：王波老师
 
 课程基于HTML5/CSS3/JavaScript(ES2019+)，讨论基本Web网页设计开发技术。包括：  
-基本HTML标签；栅格/弹性/响应式等基本布局方式；Card/模态框/浮动按钮等基本网页组件的设计实现；  
+基本HTML标签；栅格/弹性/响应式/抽屉等基本布局方式；Card/模态框/浮动按钮等基本网页组件的设计实现；  
 以及Servlet/JSP/JSTL/JDBC/异步非阻塞Servlet&Filter等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
 
 ### Important Migrations(2022.12.07)
@@ -19,7 +19,7 @@ servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径�
  - OpenJDK ^17
  - MySQL ^8
  - Tomcat ^10
- - Git ^2.3
+ - Git ^2.4
  - Chrome ^100
 
 ### Example Collections
@@ -37,7 +37,16 @@ servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径�
  - https://mooc1-1.chaoxing.com/course/91374545.html
  
 ### Related Courses
- - https://github.com/bwhyman/java-course
- - https://github.com/bwhyman/springboot-course
- - https://github.com/bwhyman/vite-vue3-examples
- - https://github.com/bwhyman/flutter_examples
+- https://github.com/bwhyman/java-course
+- https://github.com/bwhyman/web-course
+- https://github.com/bwhyman/springboot-course
+- https://github.com/bwhyman/vite-vue3-examples
+- https://github.com/bwhyman/flutter_examples
+
+### Update
+#### 2024.05.07
+window.requestAnimationFrame()原生平滑绘制动画函数。  
+JSP视图在作用域获取对象，直接使用虽然没有类型提示，但无需非空判断更安全。  
+`<jsp:useBean>`标签声明引入对象时
+- `type`属性声明，如果对象不存在则抛出异常。
+- `class`属性声明，不存在则创建对象，但不能声明接口类型。
