@@ -1,6 +1,16 @@
 # Installation & Configuration
 ### Chrome
-统一调试浏览器为Google Chrome浏览器。直接从课程平台资料中下载运行安装即可
+开发调试浏览器，统一使用Google Chrome浏览器。
+
+### IntelliJ IDEA
+
+[Idea/maven安装配置，参照Java程序设计课程方法](https://github.com/bwhyman/java-course/blob/master/Home.md)
+
+### Create Web Project
+[Idea下创建Maven Web项目](https://mooc1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=91374545&knowledgeId=368925223)
+
+### Delete Project
+参考Java课程示例  
 
 ### Git
 系统中已安装git即可，无需安装最新版，安装最新版自动覆盖旧版。  
@@ -14,16 +24,7 @@ Idea默认包含git可视化操作插件，但并没有集成git本身(eclipse�
 可以取消安装，windows explorer integration下的，git bash here，git GUI here  
 不要修改其他所有过程选项，全部默认即可  
 可查看版本  
-![image-20201029133736261](images/home/image-20201029133736261.png)  
-
-### IntelliJ IDEA
-<span style="color: red">**Idea/maven的安装配置，参照java程序设计课程方法**</span>
-
-### Create Web Project
-[Maven Web Project](https://mooc1.chaoxing.com/nodedetailcontroller/visitnodedetail?courseId=91374545&knowledgeId=368925223)
-
-### Delete Project
-参考Java课程示例  
+![image-20201029133736261](images/home/image-20201029133736261.png)
 
 ### Cloning Repository
 参考Java课程示例  
