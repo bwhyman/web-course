@@ -43,7 +43,7 @@
     </div>
 </div>
 
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(function () {
         $("#teacher-manager").click(() => {

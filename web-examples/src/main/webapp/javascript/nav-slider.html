@@ -82,17 +82,28 @@
         </ul>
     </div>
 </div>
-<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(function () {
-        $(".sidebar-group > h2").click(function () {
+        // 方法一，加载时缓存侧边栏对象，避免多次查询
+        const siderbarGroup = $(".sidebar-group");
+        siderbarGroup.children("h2").click(function () {
             // 被点击标题之后的ul元素，与标题平级
-            let ul = $(this).next("ul");
+            let currentul = $(this).next("ul");
             // 此二级导航，滑动切换
-            ul.slideToggle();
+            currentul.slideToggle();
             // 其他二级导航，排除当前导航，全部滑上
-            $(".sidebar-group > ul").not(ul).slideUp();
-        });
+            siderbarGroup.children("ul").not(currentul).slideUp();
+        })
+        // 方法二，需要多次查询
+        /*$(".sidebar-group > h2").click(function () {
+            // 被点击标题之后的ul元素，与标题平级
+            let currentul = $(this).next("ul");
+            // 此二级导航，滑动切换
+            currentul.slideToggle();
+            // 其他二级导航，排除当前导航，全部滑上。但每次执行函数均重新检索
+            $(".sidebar-group > ul").not(currentul).slideUp();
+        });*/
     })
 </script>
 </body>
