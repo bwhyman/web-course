@@ -8,18 +8,19 @@
     <title>Title</title>
     <style>
         :root {
-            --col-1: 8.33333333%;
-            --col-2: 16.66666667%;
-            --col-3: 25%;
-            --col-4: 33.33333333%;
-            --col-5: 41.66666667%;
-            --col-6: 50%;
-            --col-7: 58.33333333%;
-            --col-8: 66.66666667%;
-            --col-9: 75%;
-            --col-10: 83.33333333%;
-            --col-11: 91.66666667%;
-            --col-12: 100%;
+            --gutter: 10px;
+            --col-1: calc(8.33% - var(--gutter));
+            --col-2: calc(16.67% - var(--gutter));
+            --col-3: calc(25% - var(--gutter));
+            --col-4: calc(33.333% - var(--gutter));
+            --col-5: calc(41.67% - var(--gutter));
+            --col-6: calc(50% - var(--gutter));
+            --col-7: calc(58.33% - var(--gutter));
+            --col-8: calc(66.67% - var(--gutter));
+            --col-9: calc(75% - var(--gutter));
+            --col-10: calc(83.33% - var(--gutter));
+            --col-11: calc(91.67% - var(--gutter));
+            --col-12: calc(100% - var(--gutter));
         }
 
         * {
@@ -48,37 +49,42 @@
         /* 全局弹性布局的，行容器 */
         .row {
             display: flex;
-            /* 超出项自动换行，从而实现响应式布局 */
-            flex-wrap: wrap;
             /* 弹性项上对齐，纵向不拉伸 */
             align-items: flex-start;
+            gap: var(--gutter);
         }
+
+        .row-wrap {
+            /* 超出项自动换行，从而实现响应式布局 */
+            flex-wrap: wrap;
+        }
+
         .category {
             display: var(--category-display);
         }
+
         .card-item {
             display: flex;
             border-radius: 5px;
             background: gainsboro;
-            margin: 10px;
+            cursor: pointer;
         }
-        .card-item-link {
-            text-decoration: none;
-            color: #000;
-        }
+
         .card-item-link:hover > .card-item {
             background: white;
         }
+
         .card-item-img {
             margin: 5px;
             flex-basis: 40%;
-            width: 150px;
         }
+
         .card-item-img > img {
             width: 100%;
             height: 100%;
             border-radius: 12px;
         }
+
         .card-item-info {
             margin: 5px;
             flex-basis: 60%;
@@ -86,6 +92,7 @@
             flex-direction: column;
             justify-content: space-between;
         }
+
         @media (min-width: 200px) {
             :root {
                 --container-width: 960px;
@@ -217,44 +224,49 @@
             <h2>猜你喜欢</h2>
         </div>
     </div>
-    <div class="row">
-        <div class="col-md-4 col-sm-6 row">
-                <div class="card-item">
-                    <div class="card-item-img">
-                        <img src="https://picsum.photos/200/200/?random=3" alt="">
-                    </div>
-                    <div class="card-item-info">
-                        <div class="card-item-info-title">
-                            徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
-                        </div>
-                        <div class="card-item-info-price">$24.9</div>
-                    </div>
+    <div class="row row-wrap">
+        <div class="card-item col-md-4 col-sm-6">
+            <div class="card-item-img">
+                <img src="https://picsum.photos/200/200/?random=3" alt="">
+            </div>
+            <div class="card-item-info">
+                <div class="card-item-info-title">
+                    徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
                 </div>
-        </div>
-        <div class="col-md-4 col-sm-6 row">
-            <div class="card-item">
-                <div class="card-item-img">
-                    <img src="https://picsum.photos/200/200/?random=3" alt="">
-                </div>
-                <div class="card-item-info">
-                    <div class="card-item-info-title">
-                        徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
-                    </div>
-                    <div class="card-item-info-price">$24.9</div>
-                </div>
+                <div class="card-item-info-price">$24.9</div>
             </div>
         </div>
-        <div class="col-md-4 col-sm-6 row">
-            <div class="card-item">
-                <div class="card-item-img">
-                    <img src="https://picsum.photos/200/200/?random=3" alt="">
+        <div class="card-item col-md-4 col-sm-6">
+            <div class="card-item-img">
+                <img src="https://picsum.photos/200/200/?random=3" alt="">
+            </div>
+            <div class="card-item-info">
+                <div class="card-item-info-title">
+                    徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
                 </div>
-                <div class="card-item-info">
-                    <div class="card-item-info-title">
-                        徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
-                    </div>
-                    <div class="card-item-info-price">$24.9</div>
+                <div class="card-item-info-price">$24.9</div>
+            </div>
+        </div>
+        <div class="card-item col-md-4 col-sm-6">
+            <div class="card-item-img">
+                <img src="https://picsum.photos/200/200/?random=3" alt="">
+            </div>
+            <div class="card-item-info">
+                <div class="card-item-info-title">
+                    徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
                 </div>
+                <div class="card-item-info-price">$24.9</div>
+            </div>
+        </div>
+        <div class="card-item col-md-4 col-sm-6">
+            <div class="card-item-img">
+                <img src="https://picsum.photos/200/200/?random=3" alt="">
+            </div>
+            <div class="card-item-info">
+                <div class="card-item-info-title">
+                    徐福记米格玛米果卷混合装夹心糙米卷蛋饼干膨化
+                </div>
+                <div class="card-item-info-price">$24.9</div>
             </div>
         </div>
     </div>
