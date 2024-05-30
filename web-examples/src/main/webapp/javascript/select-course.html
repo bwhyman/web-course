@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="UTF-8" />
     <title>Title</title>
     <style>
         * {
@@ -9,6 +9,7 @@
             margin: 0;
             box-sizing: border-box;
         }
+
         .table {
             display: table;
             width: 100%;
@@ -41,23 +42,24 @@
     </style>
 </head>
 <body>
-<div>
-    <div>
+<div style="margin: 20px">
+    <p>
         模拟响应式禁选课授课时间冲突的课程。
-    </div>
-    <div class="table" id="course-table">
-        <div class="table-header">
-            <div class="table-header-cell">#</div>
-            <div class="table-header-cell">名称</div>
-            <div class="table-header-cell">学分</div>
-            <div class="table-header-cell">起止周</div>
-            <div class="table-header-cell">时间</div>
-            <div class="table-header-cell">教师</div>
-            <div class="table-header-cell">操作</div>
-        </div>
+        <br />
+        通过在冲突课程定义计数器，解决多对应冲突课程被连带取消问题。
+    </p>
+</div>
+<div class="table" id="course-table">
+    <div class="table-header">
+        <div class="table-header-cell">#</div>
+        <div class="table-header-cell">名称</div>
+        <div class="table-header-cell">学分</div>
+        <div class="table-header-cell">起止周</div>
+        <div class="table-header-cell">时间</div>
+        <div class="table-header-cell">教师</div>
+        <div class="table-header-cell">操作</div>
     </div>
 </div>
-
 <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 <script>
     $(function () {
@@ -71,109 +73,130 @@
                         <div class="table-cell">${c.startWeek} - ${c.endWeek}</div>
                         <div class="table-cell">周${c.dayOfWeek} / ${c.period}节</div>
                         <div class="table-cell">${c.teacherName}</div>
-                        <div class="table-cell"><input type="checkbox" data-courseid="${c.id}"></div>
+                        <div class="table-cell"><input type="checkbox" data-courseid="${
+                c.id
+            }"></div>
                     </div>
-                    `;
-            $("#course-table").append(h);
-        });
+                    `
+            $('#course-table').append(h)
+        })
 
         // ---------------------------------------
 
         // 获取全部数据input组件
-        const courseNodes = $("input[data-courseid]");
+        const courseNodes = $('input[data-courseid]')
         // 缓存课程对应的冲突组件数组，避免反复查询
-        const confMap = new Map();
-
+        const confMap = new Map()
+        const confCourses = []
         courseNodes.click(function () {
-                const courseId = $(this).data("courseid");
-                let confNodes = confMap.get(courseId);
+            const courseId = $(this).data('courseid')
+            let confNodes = confMap.get(courseId)
 
-                // 如果缓存中没有，则遍历比较，将jquery对象存入数组，将数组存入map
-                if (!confNodes) {
-                    confNodes = [];
-                    const course = courses.find(c => c.id === courseId);
-                    courses.filter(c => c !== course)
-                        .filter(c => c.dayOfWeek === course.dayOfWeek)
-                        .filter(c => c.period === course.period)
-                        .filter(c => (course.startWeek >= c.startWeek && course.startWeek <= c.endWeek)
-                            || (course.endWeek >= c.startWeek && course.endWeek <= c.endWeek))
-                        .forEach(c => {
-                            // 直接转jquery对象
-                            const confInput = $(`input[data-courseid=${c.id}]`);
-                            // 获取checkbox父节点，的父节点。即所在行
-                            const confRow = confInput.parent().parent();
-                            // 将input/row均存入
-                            const conflict = {confInput: confInput, confRow: confRow};
-                            confNodes.push(conflict);
-                        })
+            // 如果缓存中没有，则遍历比较，将jquery对象存入数组，将数组存入map
+            if (!confNodes) {
+                confNodes = []
+                const course = courses.find((c) => c.id === courseId)
+                courses
+                    .filter((c) => c !== course)
+                    .filter((c) => c.dayOfWeek === course.dayOfWeek)
+                    .filter((c) => c.period === course.period)
+                    .filter(
+                        (c) =>
+                            (course.startWeek >= c.startWeek && course.startWeek <= c.endWeek) ||
+                            (course.endWeek >= c.startWeek && course.endWeek <= c.endWeek)
+                    )
+                    .forEach((c) => {
+                        // 直接转jquery对象
+                        const confInput = $(`input[data-courseid=${c.id}]`)
+                        // 获取checkbox父节点，的父节点。即所在行
+                        const confRow = confInput.parent().parent()
+                        // 将input/row均存入
+                        const conflict = { confInput: confInput, confRow: confRow, course: c }
+                        confNodes.push(conflict)
+                    })
 
-                    // 将对象存入map缓存
-                    confMap.set(course.id, confNodes)
-                }
-                // 判断选中/取消状态
-                const ch = $(this).prop("checked");
-                confNodes.forEach(c => {
-                    c.confInput.prop("disabled", ch);
-                    c.confRow.css("opacity", ch ? 0.2 : 1.0);
-                })
+                // 将对象存入map缓存
+                confMap.set(course.id, confNodes)
             }
-        )
+            // 判断选中/取消状态
+            const ch = $(this).prop('checked')
+            for (const confNode of confNodes) {
+                const cCourse = confNode.course
+                // 属性不存在则赋值。因为没有对象内直接声明
+                cCourse.confNum ??= 0
+                // 选中状态，则冲突课程计数器+1；取消-1
+                ch ? cCourse.confNum++ : cCourse.confNum--
+                // 冲突节点状态由课程计数器决定
+                const dis = cCourse.confNum > 0
+                confNode.confInput.prop('disabled', dis)
+                confNode.confRow.css('opacity', dis ? 0.2 : 1.0)
+            }
+        })
     })
 
     // 模拟课程数据
     const courses = [
         {
-            "id": 100,
-            "name": "数据库原理",
-            "point": 3.0,
-            "startWeek": 1,
-            "endWeek": 10,
-            "dayOfWeek": 1,
-            "period": 12,
-            "teacherName": "谭文韬"
+            id: 100,
+            name: '数据库原理',
+            point: 3.0,
+            startWeek: 1,
+            endWeek: 10,
+            dayOfWeek: 1,
+            period: 12,
+            teacherName: '谭文韬'
         },
         {
-            "id": 101,
-            "name": "Web开发技术",
-            "point": 2.5,
-            "startWeek": 1,
-            "endWeek": 8,
-            "dayOfWeek": 1,
-            "period": 34,
-            "teacherName": "徐懿"
+            id: 101,
+            name: '影视赏析',
+            point: 1.5,
+            startWeek: 1,
+            endWeek: 8,
+            dayOfWeek: 1,
+            period: 12,
+            teacherName: '李春泰'
         },
         {
-            "id": 102,
-            "name": "托福阅读",
-            "point": 2.0,
-            "startWeek": 1,
-            "endWeek": 5,
-            "dayOfWeek": 1,
-            "period": 12,
-            "teacherName": "李景阳"
+            id: 102,
+            name: 'Web系统框架',
+            point: 2.5,
+            startWeek: 11,
+            endWeek: 17,
+            dayOfWeek: 1,
+            period: 12,
+            teacherName: '王子阳'
         },
         {
-            "id": 103,
-            "name": "高级英语视听",
-            "point": 2.0,
-            "startWeek": 3,
-            "endWeek": 10,
-            "dayOfWeek": 1,
-            "period": 34,
-            "teacherName": "龙超悦"
+            id: 103,
+            name: '托福阅读',
+            point: 2.0,
+            startWeek: 5,
+            endWeek: 15,
+            dayOfWeek: 1,
+            period: 12,
+            teacherName: '李景阳'
         },
         {
-            "id": 104,
-            "name": "Web系统框架",
-            "point": 2.5,
-            "startWeek": 10,
-            "endWeek": 17,
-            "dayOfWeek": 1,
-            "period": 12,
-            "teacherName": "王子阳"
+            id: 104,
+            name: 'Web开发技术',
+            point: 2.5,
+            startWeek: 1,
+            endWeek: 8,
+            dayOfWeek: 1,
+            period: 34,
+            teacherName: '徐懿'
+        },
+        {
+            id: 105,
+            name: '高级英语视听',
+            point: 2.0,
+            startWeek: 3,
+            endWeek: 10,
+            dayOfWeek: 1,
+            period: 34,
+            teacherName: '龙超悦'
         }
     ]
-
 </script>
 </body>
 </html>
