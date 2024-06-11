@@ -110,6 +110,8 @@
                         const confInput = $(`input[data-courseid=${c.id}]`)
                         // 获取checkbox父节点，的父节点。即所在行
                         const confRow = confInput.parent().parent()
+                        // 属性不存在则赋值。因为没有在对象内直接声明
+                        c.confNum ??= 0
                         // 将input/row均存入
                         const conflict = { confInput: confInput, confRow: confRow, course: c }
                         confNodes.push(conflict)
@@ -122,8 +124,6 @@
             const ch = $(this).prop('checked')
             for (const confNode of confNodes) {
                 const cCourse = confNode.course
-                // 属性不存在则赋值。因为没有对象内直接声明
-                cCourse.confNum ??= 0
                 // 选中状态，则冲突课程计数器+1；取消-1
                 ch ? cCourse.confNum++ : cCourse.confNum--
                 // 冲突节点状态由课程计数器决定
