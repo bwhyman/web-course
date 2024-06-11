@@ -87,7 +87,6 @@
         const courseNodes = $('input[data-courseid]')
         // 缓存课程对应的冲突组件数组，避免反复查询
         const confMap = new Map()
-        const confCourses = []
         courseNodes.click(function () {
             const courseId = $(this).data('courseid')
             let confNodes = confMap.get(courseId)
