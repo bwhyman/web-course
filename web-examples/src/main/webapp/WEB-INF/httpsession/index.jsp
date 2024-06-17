@@ -151,13 +151,11 @@
                 <li><a href="#">News</a></li>
                 <li><a href="#">Contact</a></li>
                 <li><a href="#">About</a></li>
-                <li class="right">
-                    <c:set var="msg" value="Login"/>
-                    <c:if test="${sessionScope.user != null}">
-                        <c:set var="msg" value="欢迎回来，${sessionScope.user.name}"/>
-                    </c:if>
-                    <a href="#">${msg}</a>
-                </li>
+                <c:if test="${sessionScope.user != null}">
+                    <li class="right">
+                        <a href="httpsession/logout">Logout</a>
+                    </li>
+                </c:if>
             </ul>
         </div>
     </div>
@@ -188,21 +186,24 @@
             </div>
         </c:if>
         <!-- article -->
-        <div class="area col-md-9">
+        <div class="area col-md-7">
             <h1>设计内容</h1>
             <div>未登录，无侧边栏；header无用户名；<br>
                 user权限，有普通功能操作权限及用户名；<br>
                 admin权限，更多功能。
             </div>
-            <hr>
-            <div>
+        </div>
+        <div class="area col-md-2">
+            <c:if test="${sessionScope.user == null}">
                 账号：user/admin
                 <form action="httpsession/login" method="post">
-                    <input type="text" name="username">
+                    <input type="text" name="username" style="width: 100%">
                     <button type="submit">登录</button>
                 </form>
-                    <a href="httpsession/logout">Logout</a>
-            </div>
+            </c:if>
+            <c:if test="${sessionScope.user != null}">
+                欢迎回来，${sessionScope.user.name}
+            </c:if>
         </div>
     </div>
     <!-- footer -->

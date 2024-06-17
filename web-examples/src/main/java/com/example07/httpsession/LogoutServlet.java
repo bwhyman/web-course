@@ -11,8 +11,8 @@ import java.io.IOException;
 public class LogoutServlet extends IndexServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        // 从session中移除登录对象
-        req.getSession().removeAttribute("user");
+        // 清除session对象
+        req.getSession().invalidate();
         resp.sendRedirect(req.getContextPath() + "/httpsession/index");
     }
 }
