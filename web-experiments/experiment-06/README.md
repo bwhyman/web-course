@@ -1,4 +1,4 @@
-**# Experiment-06, EL/JSTL实验
+# Experiment-06, EL/JSTL实验
 
 ### 实验原理
 
@@ -28,18 +28,20 @@ entity下的实体类，以及util下的模拟数据类DatabaseUtils可直接复
 
 **解决方案**  
 项目结构规范：所有控制层组件servlet，置于com.controller包下；所有视图文档，置于/WEB-INF/jsp/目录下  
+创建处理`/listteachers`请求的ListTeachersServlet，调用DatabaseUtils中的相应方法，获取全部教师对象并转发至视图页面  
 创建加载显示全部教师的listteachers.jsp页面，
 在文档顶部引入JSTL标签库，通过EL表达式与JSTL标签，动态生成表格，动态生成超链接的地址及参数数据  
-创建处理对应请求的ListTeachersServlet，调用DatabaseUtils中的相应方法，获取全部教师对象并转发至视图页面  
-创建updateteacher.jsp页面以及表单，在表单标签中加载教师详细信息，
-在页面引入核心标签库，按以下样式加载基本数据，基于逻辑判断，
-按教师原注册的职称及课程数据，渲染初始化页面  
-创建处理对应请求的UpdateTeacherServlet，获取教师ID参数，调用DatabaseUtils中的相应方法，
+
+创建处理`/updateteacher`请求的UpdateTeacherServlet，获取教师ID参数，调用DatabaseUtils中的相应方法，
 将：指定教师/全部职称/全部课程对象，转发至页面  
+创建updateteacher.jsp页面以及表单，在表单标签中加载教师详细信息，
+在页面引入JSTL标签库，按以下样式加载基本数据，基于逻辑判断，
+按教师原注册的职称及课程数据，渲染初始化页面  
+
 由UpdateTeacherServlet，同时处理提交修改post请求，获取请求参数并打印显示  
 
 向声明的地址发送请求  
 http://localhost:8080/listteachers  
 ![](./asserts/exp06-01.png)  
 http://localhost:8080/updateteacher?tid=2  
-![](./asserts/exp06-02.png)**  
+![](./asserts/exp06-02.png)
