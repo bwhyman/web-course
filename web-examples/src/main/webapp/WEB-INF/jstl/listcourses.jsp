@@ -5,6 +5,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <c:url  var="base" value="/" />
+    <base href="${base}">
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
@@ -13,10 +15,8 @@
 
     <c:forEach items="${courses}" var="c">
         <tr>
-            <td><a href="getcourse?cid=${c.id}">${c.name}</a></td>
-            <td><fmt:formatDate
-                    pattern="yyyy-MM-dd HH:mm"
-                    value="${c.insertDate }"/></td>
+            <td><a href="jstl/getcourse?cid=${c.id}">${c.name}</a></td>
+            <td>${c.insertTime }</td>
         </tr>
     </c:forEach>
 

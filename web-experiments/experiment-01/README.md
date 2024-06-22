@@ -9,7 +9,7 @@
 理解并掌握Required、checked等input基本属性的使用方法  
 理解并掌握button元素 submit reset类型的使用方法  
 ### 实验内容
-基于3.1Create Web Project创建maven Web项目及模块，experiment-01。以及：  
+基于web-experiments，以及：  
  - 声明项目打包类型为war
  - 在src/main下，创建webapp目录
  - 在webapp目录下，创建register.html文件，完成一个注册页面的设计
@@ -29,4 +29,4 @@
 提交、重置，按钮。需声明正确的类型  
 
 通过idea运行浏览器，查看结果  
-![注册截图](./asserts/01.png)
+![注册截图](./asserts/form-01.png)

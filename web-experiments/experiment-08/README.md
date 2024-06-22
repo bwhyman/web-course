@@ -10,9 +10,9 @@
 理解并掌握静态资源的引用方法  
 
 ### 实验内容
-创建maven项目experiment-08  
+基于web-experiments项目   
 本实例内容，着重强调基于MVC设计模式Web工程项目的整体结构，所有代码/文件可直接使用  
-直接基于experiment-07项目，完成  
+直接基于experiment-07完成  
   
 **需求+1**  
 在/WEB-INF/jsp/下

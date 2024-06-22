@@ -9,7 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/login")
+@WebServlet("/filter/login")
 public class LoginServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
@@ -25,9 +25,9 @@ public class LoginServlet extends HttpServlet {
         if ("BO".equals(userName) && "123456".equals(password)) {
             User u = new User("王小明");
             req.getSession().setAttribute("user", u);
-            url = "/welcome";
+            url = "/filter/welcome";
         } else {
-            url = "/login";
+            url = "/filter/login";
         }
         resp.sendRedirect(req.getContextPath() + url);
     }

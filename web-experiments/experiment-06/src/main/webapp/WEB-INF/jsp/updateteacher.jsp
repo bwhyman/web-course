@@ -14,30 +14,28 @@
 <body>
 <form action="updateteacher" method="post">
     用户：<input name="name" value="${teacher.name }"> <br>
-    注册时间：
-    <fmt:formatDate pattern="yyyy-MM-dd HH:mm" value="${teacher.insertDate}"/><br>
-
+    注册时间：${teacher.insertTime}
     <br>
     职称：<select name="titleid">
     <c:forEach items="${titles }" var="t">
-        <c:set var="s" value=""/>
+        <c:set var="sel" value=""/>
         <c:if test="${t.id==teacher.title.id }">
-            <c:set var="s" value="selected"/>
+            <c:set var="sel" value="selected"/>
         </c:if>
-        <option value="${t.id }" ${s }>${t.name }</option>
+        <option value="${t.id }" ${sel }>${t.name }</option>
     </c:forEach>
 </select> <br>
     授课：
     <ul>
-        <c:forEach items="${courses }" var="c" varStatus="i">
-            <c:set var="checked" value=""/>
+        <c:forEach items="${courses }" var="c">
+            <c:set var="ch" value=""/>
             <c:forEach items="${teacher.courses }" var="tc">
                 <c:if test="${tc.id == c.id }">
-                    <c:set var="checked" value="checked"/>
+                    <c:set var="ch" value="checked"/>
                 </c:if>
             </c:forEach>
             <li><label>
-                <input type="checkbox" name="courseids" value="${c.id }" ${checked }>
+                <input type="checkbox" name="courseids" value="${c.id }" ${ch }>
                     ${c.name }
             </label></li>
         </c:forEach>

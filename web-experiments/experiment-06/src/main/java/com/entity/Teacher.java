@@ -1,7 +1,6 @@
 package com.entity;
 
-import java.util.Calendar;
-import java.util.Date;
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class Teacher {
@@ -9,14 +8,17 @@ public class Teacher {
     private String name;
     private List<Course> courses;
     private Title title;
-    private Date insertDate;
+    private LocalDateTime insertTime;
 
-    public Teacher(int id, String name, List<Course> courses, Title title, Date insertDate) {
+    public Teacher() {
+    }
+
+    public Teacher(int id, String name, List<Course> courses, Title title, LocalDateTime insertTime) {
         this.id = id;
         this.name = name;
         this.courses = courses;
         this.title = title;
-        this.insertDate = insertDate;
+        this.insertTime = insertTime;
     }
 
     public int getId() {
@@ -51,11 +53,11 @@ public class Teacher {
         this.title = title;
     }
 
-    public Date getInsertDate() {
-        return insertDate;
+    public LocalDateTime getInsertTime() {
+        return insertTime;
     }
 
-    public void setInsertDate(Date insertDate) {
-        this.insertDate = insertDate;
+    public void setInsertTime(LocalDateTime insertTime) {
+        this.insertTime = insertTime;
     }
 }

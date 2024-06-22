@@ -4,6 +4,7 @@ import com.datasource.entity.Course;
 import com.datasource.entity.Teacher;
 import com.datasource.entity.Title;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -13,10 +14,10 @@ public class DatabaseUtils {
     private static final List<Title> TITLES = createTitles();
     private static final List<Teacher> TEACHERS = createTeachers();
     private static List<Course> createCourses() {
-        Course c1 = new Course(1, "Java程序设计", "Java程序设计是一门必修课", new Date());
-        Course c2 = new Course(3, "Web开发技术", "Web开发技术讨论页面开发技术", new Date());
-        Course c3 = new Course(4, "数据库原理", "数据库原理考研", new Date());
-        Course c4 = new Course(7, "系统分析与设计", "系统分析与设计很难", new Date());
+        Course c1 = new Course(1, "Java程序设计", "Java程序设计是一门必修课", LocalDateTime.now());
+        Course c2 = new Course(3, "Web开发技术", "Web开发技术讨论页面开发技术", LocalDateTime.now());
+        Course c3 = new Course(4, "数据库原理", "数据库原理考研", LocalDateTime.now());
+        Course c4 = new Course(7, "系统分析与设计", "系统分析与设计很难", LocalDateTime.now());
         return List.of(c1, c2, c3, c4);
     }
 

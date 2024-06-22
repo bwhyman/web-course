@@ -13,7 +13,7 @@
 理解并掌握基于try with resources的资源自动关闭的方法  
 
 ### 实验内容
-创建maven项目experiment-07  
+基于web-experiments项目  
 声明项目打包类型，java版本，Servlet/JSTL/MySQL驱动/Annotation依赖，添加打包插件    
 远程IP：。视频Remote MySQL Connections
  - 基于idea database视图，个人学号/密码登录远程MySQL数据库  

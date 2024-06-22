@@ -10,7 +10,7 @@
 理解并掌握背景、颜色、内外边距、尺寸、圆角等CSS基本属性的使用方法  
 
 ### 实验内容
-基创建maven Web项目及模块，experiment-02，项目打包类型为war  
+基于web-experiments项目    
 在src/main下，创建webapp目录  
 在webapp目录下，创建table.html文件，编写测试数据，完成一个数据表格
 

@@ -1,4 +1,6 @@
-# 用于JDBC学习的初始化数据表
+/**
+  用于JDBC学习的初始化数据表
+ */
 create table if not exists `user`
 (
     id int auto_increment primary key ,

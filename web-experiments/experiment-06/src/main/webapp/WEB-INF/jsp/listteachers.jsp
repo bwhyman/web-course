@@ -20,7 +20,7 @@
         <tr>
             <td>${s.count }</td>
             <td><a href="updateteacher?tid=${t.id }">${t.name }</a></td>
-            <td>${t.insertDate}</td>
+            <td>${t.insertTime}</td>
         </tr>
     </c:forEach>
 </table>

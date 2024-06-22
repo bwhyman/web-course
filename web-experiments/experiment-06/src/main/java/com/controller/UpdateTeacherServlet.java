@@ -13,7 +13,7 @@ import java.util.logging.Logger;
 
 @WebServlet("/updateteacher")
 public class UpdateTeacherServlet extends HttpServlet {
-    private static Logger logger = Logger.getLogger(UpdateTeacherServlet.class.getName());
+    private static final Logger logger = Logger.getLogger(UpdateTeacherServlet.class.getName());
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         int tid = Integer.parseInt(req.getParameter("tid"));
@@ -29,6 +29,6 @@ public class UpdateTeacherServlet extends HttpServlet {
         req.setCharacterEncoding("UTF-8");
         logger.info("姓名：" + req.getParameter("name"));
         logger.info("职称ID：" + req.getParameter("titleid"));
-        logger.info("课程ID：" + Arrays.asList(req.getParameterValues("courseids")));
+        logger.info("课程ID：" + Arrays.toString(req.getParameterValues("courseids")));
     }
 }

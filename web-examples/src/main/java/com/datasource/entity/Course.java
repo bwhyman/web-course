@@ -1,18 +1,22 @@
 package com.datasource.entity;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 
 public class Course {
     private int id;
     private String name;
     private String description;
-    private Date insertDate;
+    private LocalDateTime insertTime;
 
-    public Course(int id, String name, String description, Date insertDate) {
+    public Course() {
+    }
+
+    public Course(int id, String name, String description, LocalDateTime insertTime) {
         this.id = id;
         this.name = name;
         this.description = description;
-        this.insertDate = insertDate;
+        this.insertTime = insertTime;
     }
 
     public int getId() {
@@ -39,11 +43,11 @@ public class Course {
         this.description = description;
     }
 
-    public Date getInsertDate() {
-        return insertDate;
+    public LocalDateTime getInsertTime() {
+        return insertTime;
     }
 
-    public void setInsertDate(Date insertDate) {
-        this.insertDate = insertDate;
+    public void setInsertTime(LocalDateTime insertTime) {
+        this.insertTime = insertTime;
     }
 }
