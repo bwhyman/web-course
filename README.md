@@ -9,16 +9,11 @@ Web开发技术，是东北林业大学软件工程专业第4学期的一门专�
 基本HTML标签；栅格/弹性/响应式/抽屉等基本布局方式；Card/模态框/浮动按钮等基本网页组件的设计实现；  
 以及Servlet/JSP/JSTL/JDBC/异步非阻塞Servlet&Filter等基于java的服务器端技术，为后续Web系统框架(Springboot+SpringCloud+Vue)/移动终端软件设计(Flutter)课程提供支持
 
-### Important Migrations(2022.12.07)
-课程示例迁移到java17+Servlet6.0+tomcat10。  
-servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径从`javax.*`，变更为`jakarta.*`。  
-`javax.sql.*`，属于Java SE规范下`java.sql`模块，而非Java EE规范，因此无需变更。  
-
 ### Development Environments
  - Intellij IDEA Ultimate
- - OpenJDK ^17
+ - OpenJDK ^21
  - MySQL ^8
- - Tomcat ^10
+ - Tomcat ^11
  - Git ^2.4
  - Chrome ^100
 
@@ -46,7 +41,14 @@ servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径�
 ### Update
 #### 2024.05.07
 window.requestAnimationFrame()原生平滑绘制动画函数。  
+伪元素。  
+CSS嵌套规则。  
 JSP视图在作用域获取对象，直接使用虽然没有类型提示，但无需非空判断更安全。  
 `<jsp:useBean>`标签声明引入对象时
 - `type`属性声明，如果对象不存在则抛出异常。
 - `class`属性声明，不存在则创建对象，但不能声明接口类型。
+
+#### 2022.12.07 - Important Migrations
+课程示例迁移到java17+Servlet6.0+tomcat10。  
+servlet/jstl/annotation属于原Java EE规范，更名为Jakarta EE后包路径从`javax.*`，变更为`jakarta.*`。  
+`javax.sql.*`，属于Java SE规范下`java.sql`模块，而非Java EE规范，因此无需变更。  
