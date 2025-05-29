@@ -10,65 +10,67 @@
             margin: 0;
             box-sizing: border-box;
         }
-        .container {
-            max-width: 960px;
-            margin: auto;
-        }
         .area {
             padding: 10px;
             border: 1px solid #f08c00;
             background-color: #ffec99;
             border-radius: 5px;
         }
+        .container {
+            max-width: 960px;
+            margin: auto;
+        }
         .row {
             display: flex;
             align-items: flex-start;
         }
         /* ------ header ------- */
-        .nav {
+        ul.nav-list {
             display: flex;
             background: #333;
             list-style: none;
         }
-        .nav a {
+        a.nav-list-link {
             color: white;
             text-decoration: none;
             display: block;
             padding: 15px 25px;
         }
-        .nav a:hover {
-            background-color: #111;
-        }
-        .nav .right {
+        li.nav-item-right {
             margin-left: auto;
+        }
+        a.nav-list-link:hover {
+            background-color: #111;
         }
         /*-------------- sidebar ------------ */
         .sidebar {
-            min-width: 200px;
+            flex-basis: 200px;
+            flex-shrink: 0;
         }
         .sidebar-group {
             background: #f1f1f1;
         }
-        .sidebar-group > ul {
+        .sidebar-group-list {
             list-style: none;
         }
-        .sidebar-group > h2 {
+        .sidebar-group-title {
             background: #3185bf;
             color: white;
             padding: 10px 20px;
         }
-        .sidebar-group a{
+        .sidebar-group-list-link {
             display: block;
             color: black;
             text-decoration: none;
             padding: 10px 20px;
             transition: transform 0.5s;
         }
-        .sidebar-group a:hover {
+        .sidebar-group-list-link:hover {
             background: #03a9f4;
             color: white;
             transform: scale(1.1);
         }
+        /*-------------- footer ------------ */
         .footer {
             text-align: center;
         }
@@ -89,42 +91,38 @@
 </head>
 <body>
 <div class="container">
-    <!-- header -->
-    <div class="area row">
-        <div class="col-md-12">
-            <ul class="nav">
-                <li><a href="#">Home</a></li>
-                <li><a href="#">News</a></li>
-                <li><a href="#">Contact</a></li>
-                <li><a href="#">About</a></li>
-                <li class="right"><a href="#">Logout</a></li>
+    <div class="header area row">
+        <div class="nav area col-md-12">
+            <ul class="nav-list">
+                <li><a href="" class="nav-list-link">Home</a></li>
+                <li><a href="" class="nav-list-link">News</a></li>
+                <li><a href="" class="nav-list-link">Contact</a></li>
+                <li><a href="" class="nav-list-link">About</a></li>
+                <li class="nav-item-right"><a href="" class="nav-list-link">Logout</a></li>
             </ul>
         </div>
     </div>
-    <!-- main  -->
-    <div class="area row">
-        <!-- sidebar -->
-        <div class="area col-md-3 sidebar">
+    <div class="main area row">
+        <div class="sidebar area col-md-3">
             <div class="sidebar-group">
-                <h2>云技术管理</h2>
-                <ul>
-                    <li><a href="#">云服务器</a></li>
-                    <li><a href="#">云数据库</a></li>
-                    <li><a href="#">负载均衡</a></li>
+                <h2 class="sidebar-group-title">云技术管理</h2>
+                <ul class="sidebar-group-list">
+                    <li><a href="#" class="sidebar-group-list-link">云服务器</a></li>
+                    <li><a href="#" class="sidebar-group-list-link">云数据库</a></li>
+                    <li><a href="#" class="sidebar-group-list-link">负载均衡</a></li>
                 </ul>
             </div>
             <div class="sidebar-group">
-                <h2>安全管理</h2>
-                <ul>
-                    <li><a href="#">云盾控制台</a></li>
-                    <li><a href="#">DDoS高防IP</a></li>
-                    <li><a href="#">Web应用防火墙</a></li>
-                    <li><a href="#">CA证书服务</a></li>
+                <h2 class="sidebar-group-title">安全管理</h2>
+                <ul class="sidebar-group-list">
+                    <li><a href="#" class="sidebar-group-list-link">云盾控制台</a></li>
+                    <li><a href="#" class="sidebar-group-list-link">DDoS高防IP</a></li>
+                    <li><a href="#" class="sidebar-group-list-link">Web应用防火墙</a></li>
+                    <li><a href="#" class="sidebar-group-list-link">CA证书服务</a></li>
                 </ul>
             </div>
         </div>
-        <!-- article -->
-        <div class="area col-md-9">
+        <div class="article area col-md-12">
             <h1>设计内容</h1>
             <p>为各部分区域设计统一样式；全局取消元素内外边距，按box尺寸计算</p>
             <h3>需求0</h3>
@@ -138,9 +136,8 @@
             <p>为左侧边栏添加样式，添加背景色/字体色/悬浮等等样式</p>
         </div>
     </div>
-    <!-- footer -->
-    <div class="area row">
-        <div class="col-md-12 footer">
+    <div class="footer area row">
+        <div class="col-md-12">
             <p>东北林业大学<br>
                 软件工程专业 2046&copy;</p>
         </div>
