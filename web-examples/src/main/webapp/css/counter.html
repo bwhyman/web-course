@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        :root {
+            counter-set: headings;
+        }
+        h2::after {
+            counter-increment: headings;
+            content: " " counter(headings)
+        }
+
+    </style>
+</head>
+<body>
+<p>
+    自增长属性。
+</p>
+<div>
+    <h2>Chapter</h2>
+    <h2>chapter</h2>
+    <h2>chapter</h2>
+</div>
+
+</body>
+</html>
