@@ -57,7 +57,7 @@
         /* ---------------初始化---------------------- */
         // 初始化时，所有输入全部不可用，基于id，后代，伪类选择器
         // 不支持直接给form设置disabled
-        let registerForm = $("#register :input").prop("disabled", true);
+        const registerForm = $("#register :input").prop("disabled", true);
         // 提交按钮状态，由2个条件决定，将2个状态设为变量，便于后续修改使用
         // 用户名长度校验标识
         let userNameValid = false;
@@ -66,9 +66,11 @@
         /* --------------------------------------- */
         /* 同意协议复选框 */
         $("#legal").click(function () {
-            let dis = !$(this).prop("checked");
+            const checked = $(this).prop("checked");
             // 同意，表单内为可用，但提交按钮由独立条件判断
-            registerForm.not($("button:submit")).prop("disabled", dis);
+            registerForm.not($("button:submit")).prop("disabled", !checked);
+            // 同意，还需判断选项组状态
+            checked && checkBoxs()
         });
         /* 去空格后，判断输入长度 */
         $("input[name=username]").change(function () {
@@ -84,8 +86,8 @@
 
         /* 动态添加地址 */
         $("#button_address").click(() => {
-            let input = $("input[name=address]");
-            let item = $(`<li>${input.val()}</li>`);
+            const input = $("input[name=address]");
+            const item = $(`<li>${input.val()}</li>`);
             input.val("");
             item.css("display", "none");
             $("#ul_address").append(item);
@@ -96,20 +98,22 @@
         const amount = 2;
         // name=courses的复选框组
         const checkboxes = $("input[name=courses]");
-        checkboxes.click(function () {
+        $(checkboxes).change(() => checkBoxs());
+        // 需要多处判断，声明为独立函数
+        function checkBoxs() {
             // 过滤，复选框组中所有，选中项
-            let checked = checkboxes.filter(":checked");
+            const checked = checkboxes.filter(":checked");
             // 过滤，复选框组中所有，未选择项
-            let unChecked = checkboxes.not(":checked");
+            const unChecked = checkboxes.not(":checked");
             // 比较数量，符合数量，修改标识
             coursesValid = checked.length >= amount;
             // 绑定未选中项状态
             unChecked.prop("disabled", coursesValid);
-        });
+        }
 
         /* 同时监听2个状态的改变，但无需重写以上校验代码，仅需判断之前校验产生的状态标识即可 */
         $("input[name=username], input[name=courses]").change(() => {
-            let dis = userNameValid && coursesValid;
+            const dis = userNameValid && coursesValid;
             // 当2个状态均符合规范时，提交按钮可用
             $("button:submit").prop("disabled", !dis);
         });
@@ -121,9 +125,9 @@
         * 相等，则为第二次点击，置被点击单选框为未选中状态，重置隐藏域值 */
         /* 基于隐藏输入框的实现，即表单提交时，传递的是隐藏输入框的值，而非单选框的值 */
         // 可复用的点选框组
-        let radios = $("input[name=purp]");
+        const radios = $("input[name=purp]");
         // 隐藏输入框
-        let hiddenInput = $("input[name=purpose]");
+        const hiddenInput = $("input[name=purpose]");
         radios.click(function () {
             // 相等，为第二次点击，置此单选框为未选中状态，重置隐藏域值
             if ( $(this).val() === hiddenInput.val()) {
