@@ -39,6 +39,11 @@ Web开发技术，是东北林业大学软件工程专业第4学期的一门专�
 - https://github.com/bwhyman/flutter_examples
 
 ### Update
+
+#### 2025.06.27
+
+移除EncodingFilter。tomcat11+默认字符集终于从ISO改为UTF-8，包括控制台等等均无需修改字符编码。
+
 #### 2024.05.07
 window.requestAnimationFrame()原生平滑绘制动画函数。  
 伪元素。  

@@ -23,8 +23,7 @@
 
 在webapp下，创建META-INF目录，直接复制context.xml资源配置文件，修改配置数据  
 在com.entity下创建User实体类，声明id/name/insertTime等合适数据类型属性，对应数据库字段  
-在com.util下，创建容器启动监听器DataSourceUtils，丛JNDI树获取DataSource对象，暴露连接对象获取方法  
-创建全局过滤器，修改请求/响应编码，否则提交的数据会按ISO编码并保存在数据库    
+在com.util下，创建容器启动监听器DataSourceUtils，丛JNDI树获取DataSource对象，暴露连接对象获取方法
 
 **需求+1**  
 在com.controller下，创建IndexServlet，重写doGet()方法。
