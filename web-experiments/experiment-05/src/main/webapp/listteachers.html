@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="teachers-table">
+    <tr>
+        <th>#</th>
+        <th>Name</th>
+        <th>Create Time</th>
+    </tr>
+</table>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(async function () {
+        // 阻塞等待响应数据
+        const data = await fetch('api/listteachers')
+            .then(resp => resp.json())
+        console.log(data)
+
+        const table = $('#teachers-table')
+        // 返回的响应数据，动态渲染到视图
+        data.forEach((t, index) => {
+            table.append(`<tr>
+                    <td>${index + 1}</td>
+                    <td><a href="teacher.html?tid=${t.id}">${t.name}</a></td>
+                    <td>${t.createTime.replaceAll('T', ' ')}</td>
+                    </tr>`)
+        })
+    })
+
+</script>
+</body>
+</html>

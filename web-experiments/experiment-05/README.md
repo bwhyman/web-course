@@ -1,51 +1,47 @@
-# Experiment-05, Servlet/Filter实验
+# Experiment-05, 异步交互与页面动态渲染实验
+
 ### 实验原理
-通过Servlet完成Web应用的请求、响应、页面文件的转发以及重定向，通过Filter完成对请求的拦截与处理，声明周期回调方法的作用与意义。
+
+通过结合HTML标签、JSTL标签、EL表达式，以及逻辑判断，
+遍历循环等完成对各种类型对象封装属性的显示，并能通过定义显示模式显示不同效果。
 
 ### 实验目的
-理解并掌握Servlet文件的创建与配置方法  
-理解并掌握Servlet对get请求处理以及转发方法  
-理解并掌握Servlet对post的处理以及重定向方法  
-理解并掌握session scope的作用意义以及实现方法  
-理解Servlet Filter的实现原理  
-理解并掌握Servlet Filter的创建/拦截规则/配置的方法  
-理解并掌握Servlet Filter过滤方法的实现
+
+理解并掌握EL表达式的使用方法及基本语法  
+理解并掌握JSTL循环、判断等基本标签的使用  
+理解并掌握JSTL标签对HTML标签的控制方法  
+理解并掌握JSTL标签、EL表达式、HTML标签的整合方法  
+理解在JSP页面使用EL表达式以及JSTL标签的作用与意义  
 
 ### 实验内容
+
 基于web-experiments项目  
-声明项目打包类型，声明java版本，添加Servlet依赖，添加打包插件  
-创建webapp目录，创建WEB-INF安全目录，创建jsp目录，存储页面资源  
-
-### 需求+设计提示
-**需求+1**  
-在/WEB-INF/jsp/下，创建login.html登录页面，声明登录form表单，向login发出请求  
-在/WEB-INF/jsp/下，创建welcome.html页面，声明欢迎文本  
-
-在java目录下，编写java代码  
-在com.controller下，创建LoginServlet类，处理/filter/login地址请求，重写doGet()方法，转发请求至login.html  
-在com.controller下，创建WelcomeServlet类，处理/filter/welcome地址请求，重写doGet()，转发至welcome.html  
-在login.html添加，向welcome地址请求的超链接  
-基于Tomcat Hot Deploy视频，在调试模式下，部署运行项目至tomcat服务器  
-在地址栏向login发起请求，正确运行后，浏览器将显式登录页面  
-shift+F9在debug运行模式下重新编译/部署项目  
-
-**实验示例声明`/filter/`路径前缀，是为了避免过滤器过滤实验项目下的所有请求，致使其他实验请求无法访问**   
-
-**理解：servlet上声明的`/`，为部署路径的根。但是对于客户端浏览器来说`/`，为服务器的根，差一个部署路径  
-因此，让客户端浏览器重定向时的路径，必须包含向服务器下的哪一个部署路径下的地址，重定向。
-因此必须动态获取当前项目的部署路径，再拼接请求地址**
-
-![login](./asserts/login-01.png)
+声明项目打包类型，声明java版本，添加Servlet依赖，添加Jackson依赖  
+创建webapp目录，创建WEB-INF安全目录，创建jsp目录  
+entity下的实体类，以及util下的模拟数据类DatabaseUtils可直接复制使用，无需编写。  
 
 **需求+1**  
-在com.entity下，创建User实体类，声明用户姓名/账号/密码等私有属性  
-重写LoginServlet的doPost()方法，获取页面传入的登录账号/密码参数，
-实现当账号/密码为指定字符串时，创建user对象，并将对象添加至session中  
-且，登录成功，重定向到welcome，即welcome页面；登录失败，重定向到/login，即登录页面  
+以表格形式显示所有注册教师姓名及注册时间  
+且教师姓名为可点击的超链接，点击后跳转至教师详细信息页面  
+在详细页面以表单形式，基于教师注册过的信息，加载初始化页面  
+提交表单后，在控制台打印显示修改后的数据  
 
-此时，仍可直接向welcome地址发送请求  
+**解决方案**  
+项目结构规范：所有控制层组件servlet，置于com.controller包下；所有视图文档，置于/WEB-INF/jsp/目录下  
+创建处理`/listteachers`请求的ListTeachersServlet，调用DatabaseUtils中的相应方法，获取全部教师对象并转发至视图页面  
+创建加载显示全部教师的listteachers.jsp页面，
+在文档顶部引入JSTL标签库，通过EL表达式与JSTL标签，动态生成表格，动态生成超链接的地址及参数数据  
 
-**需求+1**  
-在com.filter下，创建LoginFilter过滤器，声明过滤路径`/filter/*`，声明排除路径，重写doFilter()方法，判断请求路径是否为排除路径，判断用户是否已登录  
-从而实现，当用户已登录，可以直接发送welcome请求；未登录，重定向到login登录  
-关闭/重启服务器(为了清空session)，尝试在登录/未登录状态下，向welcome请求  
+创建处理`/updateteacher`请求的UpdateTeacherServlet，获取教师ID参数，调用DatabaseUtils中的相应方法，
+将：指定教师/全部职称/全部课程对象，转发至页面  
+创建updateteacher.jsp页面以及表单，在表单标签中加载教师详细信息，
+在页面引入JSTL标签库，按以下样式加载基本数据，基于逻辑判断，
+按教师原注册的职称及课程数据，渲染初始化页面  
+
+由UpdateTeacherServlet，同时处理提交修改post请求，获取请求参数并打印显示  
+
+向声明的地址发送请求  
+http://localhost:8080/listteachers  
+![](./asserts/exp06-01.png)  
+http://localhost:8080/updateteacher?tid=2  
+![](./asserts/exp06-02.png)

@@ -1,22 +1,22 @@
 package com.entity;
 
-public class Course {
-    private int id;
+public class Title {
+    private Integer id;
     private String name;
 
-    public Course() {
+    public Title() {
     }
 
-    public Course(int id, String name) {
+    public Title(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

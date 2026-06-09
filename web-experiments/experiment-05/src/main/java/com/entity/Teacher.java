@@ -4,28 +4,28 @@ import java.time.LocalDateTime;
 import java.util.List;
 
 public class Teacher {
-    private int id;
+    private Integer id;
     private String name;
     private List<Course> courses;
     private Title title;
-    private LocalDateTime insertTime;
+    private LocalDateTime createTime;
 
     public Teacher() {
     }
 
-    public Teacher(int id, String name, List<Course> courses, Title title, LocalDateTime insertTime) {
+    public Teacher(Integer id, String name, List<Course> courses, Title title, LocalDateTime createTime) {
         this.id = id;
         this.name = name;
         this.courses = courses;
         this.title = title;
-        this.insertTime = insertTime;
+        this.createTime = createTime;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -53,11 +53,11 @@ public class Teacher {
         this.title = title;
     }
 
-    public LocalDateTime getInsertTime() {
-        return insertTime;
+    public LocalDateTime getCreateTime() {
+        return createTime;
     }
 
-    public void setInsertTime(LocalDateTime insertTime) {
-        this.insertTime = insertTime;
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
     }
 }

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    <p>
+        showModal()函数可以弹出自带透明背景的Modal dialog。
+        <br>
+        重点：Modal dialog基于#top-layer，完全脱离当前HTML文本流。
+    </p>
+    <button onclick="dial1.showModal()">dial1 show</button>
+    <dialog id="dial1" >
+        <h3>欢迎关注前端侦探</h3>
+        <button onclick="dial1.close()">关闭</button>
+    </dialog>
+</div>
+</body>
+</html>

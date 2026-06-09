@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>teacher</h1>
+<div>
+    <input type="text" id="name-input">
+    <br>
+    <select name="title" id="titles-select">
+        <option></option>
+    </select>
+    <br>
+    <div id="courses-div"></div>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(async function () {
+        // 获取`?`后路径，并封装为属性按键值
+        const params = new URLSearchParams(window.location.search)
+        const tid = params.get('tid')
+        const data = await fetch(`api/getteacher?tid=${tid}`)
+            .then(resp => resp.json())
+        console.log(data)
+        const teacher = data.teacher
+        const titles = data.titles
+        const courses = data.courses
+        // 加载默认值
+        $('#name-input').val(teacher.name)
+        //
+        const titlesSelect = $('#titles-select')
+        titles.forEach(t => {
+            const seled = t.id === teacher.title.id ? 'selected' : ''
+            titlesSelect.append(`<option value="${t.id}" ${seled}>${t.name}`)
+        })
+        //
+        const coursesDiv = $('#courses-div')
+        courses.forEach(c => {
+            // some()方法，仅判断是否存在，不返回元素
+            const chd = teacher.courses.some(tc => tc.id === c.id) ? 'checked' : ''
+            coursesDiv.append(`<label><input type="checkbox" ${chd}>${c.name}</label>`)
+        })
+    })
+</script>
+</body>
+</html>
