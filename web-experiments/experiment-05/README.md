@@ -2,46 +2,45 @@
 
 ### 实验原理
 
-通过结合HTML标签、JSTL标签、EL表达式，以及逻辑判断，
-遍历循环等完成对各种类型对象封装属性的显示，并能通过定义显示模式显示不同效果。
+结合jquery/fetch()/Jackson实现后端数据请求，并将数据动态渲染到页面视图。
 
 ### 实验目的
 
-理解并掌握EL表达式的使用方法及基本语法  
-理解并掌握JSTL循环、判断等基本标签的使用  
-理解并掌握JSTL标签对HTML标签的控制方法  
-理解并掌握JSTL标签、EL表达式、HTML标签的整合方法  
-理解在JSP页面使用EL表达式以及JSTL标签的作用与意义  
+理解并掌握基于 Servlet 实现服务器端请求/相应处理。  
+理解并掌握基于Jackson的对象序列化/反序列化方法。  
+理解并掌握 fetch() 异步请求函数的使用方法。  
+理解并掌握基于 jquery 更新视图节点的方法。
 
 ### 实验内容
 
+按前后端分离开发设计模式，后端仅负责处理业务并响应数据，不再处理页面的动态渲染，跳转转发等操作。
+
+前端负责渲染基础视图结构，异步请求后端数据，动态创建视图组件并填充。
+
+**环境**
+
 基于web-experiments项目  
-声明项目打包类型，声明java版本，添加Servlet依赖，添加Jackson依赖  
-创建webapp目录，创建WEB-INF安全目录，创建jsp目录  
-entity下的实体类，以及util下的模拟数据类DatabaseUtils可直接复制使用，无需编写。  
+声明项目打包类型，声明java版本，添加Servlet依赖，添加Jackson依赖。  
+创建webapp目录。    
+entity/*，util/JacksonUtils，service/UserService，基础代码可直接复制使用。
 
-**需求+1**  
-以表格形式显示所有注册教师姓名及注册时间  
-且教师姓名为可点击的超链接，点击后跳转至教师详细信息页面  
-在详细页面以表单形式，基于教师注册过的信息，加载初始化页面  
-提交表单后，在控制台打印显示修改后的数据  
+**需求+1**
 
-**解决方案**  
-项目结构规范：所有控制层组件servlet，置于com.controller包下；所有视图文档，置于/WEB-INF/jsp/目录下  
-创建处理`/listteachers`请求的ListTeachersServlet，调用DatabaseUtils中的相应方法，获取全部教师对象并转发至视图页面  
-创建加载显示全部教师的listteachers.jsp页面，
-在文档顶部引入JSTL标签库，通过EL表达式与JSTL标签，动态生成表格，动态生成超链接的地址及参数数据  
+实现controller控制层组件。  
+编写ListTeachersServlet，处理请求路径`/api/listteachers`，从模拟业务获取全部用户信息，序列化为JSON字符串，返回响应客户端。
 
-创建处理`/updateteacher`请求的UpdateTeacherServlet，获取教师ID参数，调用DatabaseUtils中的相应方法，
-将：指定教师/全部职称/全部课程对象，转发至页面  
-创建updateteacher.jsp页面以及表单，在表单标签中加载教师详细信息，
-在页面引入JSTL标签库，按以下样式加载基本数据，基于逻辑判断，
-按教师原注册的职称及课程数据，渲染初始化页面  
+编写listteachers.html视图，构建基础table组件。  
+异步请求`/api/listteachers`获取全部用户数据。  
+动态将数据填充至table组件。
 
-由UpdateTeacherServlet，同时处理提交修改post请求，获取请求参数并打印显示  
+**需求+1**
 
-向声明的地址发送请求  
-http://localhost:8080/listteachers  
-![](./asserts/exp06-01.png)  
-http://localhost:8080/updateteacher?tid=2  
-![](./asserts/exp06-02.png)
+编写GetTeacherServlet，`/api/getteacher`，获取请求参数，调用模拟业务获取指定参数用户详细信息，获取全部titles/courses数据，序列化响应客户端。
+
+编写getteacher.html视图，构建input/select/checkboxs等基础组件。  
+异步请求`/api/getteacher`，传递用户ID参数，获取指定用户详细信息。  
+动态将数据渲染至form表单相应组件。  
+基于用户数据，设置下拉框/复选框等组件的默认渲染样式。
+
+更新listteachers.html视图，将用户姓名渲染为跳转并传递ID参数的超链接。
+移除默认ISO时间中的分隔符`T`。

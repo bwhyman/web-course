@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>List Users</h1>
+<div>
+    <ul id="users-ul"></ul>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(async function () {
+        const ulEl = $('#users-ul')
+        const data = await fetch('api/listusers').then(resp => resp.json())
+        data.forEach(u => {
+            ulEl.append(`<li><a href="getuser.html?uid=${u.id}">${u.name}</a></li>`)
+        })
+    })
+</script>
+</body>
+</html>

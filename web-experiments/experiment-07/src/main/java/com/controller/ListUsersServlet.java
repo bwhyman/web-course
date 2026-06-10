@@ -12,14 +12,17 @@ import java.util.List;
 import com.entity.User;
 import com.util.DataSourceUtils;
 
+import com.util.JacksonUtils;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import tools.jackson.databind.json.JsonMapper;
 
-@WebServlet("/index")
-public class IndexServlet extends HttpServlet {
+@WebServlet("/api/listusers")
+public class ListUsersServlet extends HttpServlet {
+    private static final JsonMapper mapper = JacksonUtils.getMapper();
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         List<User> users = new ArrayList<>();
@@ -34,8 +37,6 @@ public class IndexServlet extends HttpServlet {
         } catch (SQLException throwables) {
             throwables.printStackTrace();
         }
-        req.setAttribute("users", users);
-        req.getRequestDispatcher("/WEB-INF/jsp/index.jsp")
-                .forward(req, resp);
+        resp.getWriter().write(mapper.writeValueAsString(users));
     }
 }

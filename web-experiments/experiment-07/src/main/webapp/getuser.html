@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>teacher</h1>
+<div>
+    <input type="text" id="name-input">
+    <br>
+    <button id="updatename-button">update</button>
+</div>
+
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(async function () {
+        // 获取`?`后路径，并封装为属性按键值
+        const params = new URLSearchParams(window.location.search)
+        const uid = params.get('uid')
+        const user = await fetch(`api/getuser?uid=${uid}`)
+            .then(resp => resp.json())
+        console.log(user)
+
+        // 加载默认值
+        const nameInputEl = $('#name-input')
+        nameInputEl.val(user.name)
+        //
+        $('#updatename-button').click(async () => {
+            const newName = nameInputEl.val()
+            const result = await fetch('api/updateuser', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({name: newName, id: user.id})
+            }).then(resp => resp.json())
+            if(result.code === 0) {
+                nameInputEl.val('')
+                alert('更新成功')
+            }
+        })
+    })
+</script>
+</body>
+</html>
