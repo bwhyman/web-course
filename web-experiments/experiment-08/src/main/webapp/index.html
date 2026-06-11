@@ -1,11 +1,6 @@
-<%@ page pageEncoding="UTF-8" %>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<jsp:useBean id="users" scope="request" type="java.util.List<com.entity.User>"/>
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <c:url var="base" value="/"/>
-    <base href="${base}">
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
@@ -14,11 +9,12 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         .container {
             display: flex;
             flex-direction: column;
+            max-width: 992px;
             min-height: 100vh;
+            margin: auto;
         }
 
         #main {
@@ -65,18 +61,13 @@
             text-decoration: none;
             border-radius: 5px;
         }
-
     </style>
 </head>
 <body>
 <div class="container">
-    <div id="header">
-        <%@include file="/WEB-INF/jsp/header.jsp" %>
-    </div>
+    <div id="header"></div>
     <div id="main">
-        <div id="sidebar">
-            <%@include file="/WEB-INF/jsp/sidebar.jsp" %>
-        </div>
+        <div id="sidebar"></div>
         <div id="article">
             <table>
                 <thead>
@@ -86,22 +77,33 @@
                     <td>操作</td>
                 </tr>
                 </thead>
-                <tbody>
-                <c:forEach items="${users }" var="u" varStatus="v">
-                    <tr>
-                        <td>${v.count }</td>
-                        <td>${u.name }</td>
-                        <td><a class="btn" href="getuser?uid=${u.id }">详细</a>
-                    </tr>
-                </c:forEach>
+                <tbody id="users-tbody">
+
                 </tbody>
             </table>
         </div>
     </div>
-    <div id="footer">
-        <%@include file="/WEB-INF/jsp/footer.jsp" %>
-    </div>
+    <div id="footer"></div>
 </div>
+<script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+<script>
+    $(async function () {
+        $('#header').load('./layout/header.html')
+        $('#sidebar').load('./layout/sidebar.html')
+        $('#footer').load('./layout/footer.html')
 
+        const data = await fetch('api/listusers').then(resp => resp.json())
+
+        data.forEach((u, index) => {
+            $('#users-tbody').append(`
+            <tr>
+                <td>${index + 1}</td>
+                <td>${u.name}</td>
+                <td><a href="" class="btn">编辑</a></td>
+            </tr>`)
+        })
+
+    })
+</script>
 </body>
 </html>

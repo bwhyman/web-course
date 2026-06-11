@@ -20,5 +20,5 @@ public interface UserService {
      * @param id
      * @return
      */
-    public User getUser(String id);
+    public User getUser(int id);
 }

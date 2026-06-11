@@ -3,29 +3,29 @@ package com.entity;
 import java.time.LocalDateTime;
 
 public class User {
-    private String id;
+    private Integer id;
     private String name;
     private LocalDateTime insertTime;
 
     public User() {
     }
 
-    public User(String id, String name) {
+    public User(Integer id, String name) {
         this.id = id;
         this.name = name;
     }
 
-    public User(String id, String name, LocalDateTime insertTime) {
+    public User(Integer id, String name, LocalDateTime insertTime) {
         this.id = id;
         this.name = name;
         this.insertTime = insertTime;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

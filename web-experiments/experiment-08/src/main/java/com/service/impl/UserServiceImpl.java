@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
             PreparedStatement st = conn.prepareStatement(sql);
             ResultSet rs = st.executeQuery()) {
             while (rs.next()) {
-                User user = new User(rs.getString("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
+                User user = new User(rs.getInt("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
                 users.add(user);
             }
         } catch (SQLException e) {
@@ -45,15 +45,15 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUser(String id) {
+    public User getUser(int id) {
         User user = null;
         String sql = "SELECT * FROM user WHERE id=?";
         try(Connection conn = DataSourceUtils.getConnection();
             PreparedStatement st = conn.prepareStatement(sql)) {
-            st.setString(1, id);
+            st.setInt(1, id);
             try(ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
-                    user = new User(rs.getString("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
+                    user = new User(rs.getInt("id"), rs.getString("name"), rs.getObject("insert_time", LocalDateTime.class));
                 }
             }
         } catch (SQLException e) {

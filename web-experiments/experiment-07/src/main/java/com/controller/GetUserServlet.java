@@ -32,7 +32,7 @@ public class GetUserServlet extends HttpServlet {
             try (ResultSet rs = st.executeQuery()) {
                 while (rs.next()) {
                     user = new User();
-                    user.setId(rs.getString("id"));
+                    user.setId(rs.getInt("id"));
                     user.setName(rs.getString("name"));
                     user.setInsertTime(rs.getObject("insert_time", LocalDateTime.class));
                 }
