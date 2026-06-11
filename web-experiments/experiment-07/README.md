@@ -13,34 +13,32 @@
 理解并掌握基于try with resources的资源自动关闭的方法  
 
 ### 实验内容
-基于web-experiments项目  
-声明项目打包类型，java版本，Servlet/JSTL/MySQL驱动/Annotation依赖，添加打包插件    
-远程IP：。视频Remote MySQL Connections
+基于web-experiments项目，声明项目打包类型，java版本，Servlet/MySQL Driver/Annotation/Jackson依赖，添加打包插件。    
+远程IP：[视频Remote MySQL Connections](https://mooc1.chaoxing.com/mooc-ans/nodedetailcontroller/visitnodedetail?courseId=91374545&knowledgeId=868078605)
  - 基于idea database视图，个人学号/密码登录远程MySQL数据库  
  - 在已经默认创建的以个人学号命名的数据库下，创建数据表user，添加id/name/insert_time数据段，并声明合适类型
  - insert_time段为datetime类型，默认值记录插入时间  
  - 添加若干测试数据记录  
 
-在webapp下，创建META-INF目录，直接复制context.xml资源配置文件，修改配置数据  
-在com.entity下创建User实体类，声明id/name/insertTime等合适数据类型属性，对应数据库字段  
-在com.util下，创建容器启动监听器DataSourceUtils，丛JNDI树获取DataSource对象，暴露连接对象获取方法
+在webapp下，创建META-INF目录，直接复制context.xml资源配置文件，修改配置数据。  
+在com.entity下创建User实体类，声明id/name/insertTime等合适数据类型属性，映射数据库字段。  
+在com.util下，创建容器启动监听器DataSourceUtils，从JNDI树获取DataSource对象，暴露连接对象获取方法。
+
+结合`动态渲染实验`。
 
 **需求+1**  
-在com.controller下，创建IndexServlet，重写doGet()方法。
-基于JDBC查询全部用户信息，封装每一条记录为对象，创建集合封装对象，推送到index.jsp页面  
-在/WEB-INF/jsp/下，创建index.jsp，基于JSTL标签，加载全部用户为列表  
-页面声明动态获取部署路径，作为页面基本路径    
+在com.controller下，创建ListUsersServlet类，基于JDBC查询全部用户信息，封装每一条记录为对象，创建集合封装对象元素，序列化返回。
+
+创建listusers.html视图，向后端请求全部用户数据，以列表动态渲染。
 
 **需求+1**  
-在index.jsp添加form表单，添加基于用户集合动态创建的下拉框；添加输入框  
-在com.controller下，创建UpdateUserServlet类，接收用户ID与新用户名，通过JDBC修改指定ID的用户名  
-并重定向回index，在Servlet中可通过req.getContextPath()方法，获取项目部署路径，拼接重定向地址(部署路径可能无法确定)  
+在com.controller下，创建GetUserServlet类，接收用户ID参数，基于JDBC查询指定ID用户信息，封装为对象，序列化返回。  
+
+创建getuser.html视图，接收用户ID参数，并向后端请求指定ID用户数据，将响应的用户数据渲染到input
+输入框。  
+扩展listusers.html视图，将用户信息以超链接渲染，带参数跳转到getuser.html。
 
 **需求+1**  
-在index.jsp用户名列表，添加跳转超链接
-在com.controller下，创建GetUserServlet类，基于接收的用户ID，查询用户新建，封装。转发至query.jsp视图
-创建query.jsp，显式用户详细信息  
+在com.controller下，创建UpdateUserServlet类，基于JDBC更新用户信息，返回成功标识。  
 
-运行部署项目至Tomcat，向index发起请求，查看结果，并测试功能  
-
-![jdbc](./asserts/jdbc-01.PNG)
+扩展getuser.html视图，基于fetch()实现 POST 请求，发送修改的用户信息至后端，返回更新成功标识后，弹出通知框。  

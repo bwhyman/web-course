@@ -42,5 +42,5 @@ entity/*，util/JacksonUtils，service/UserService，基础代码可直接复制
 动态将数据渲染至form表单相应组件。  
 基于用户数据，设置下拉框/复选框等组件的默认渲染样式。
 
-更新listteachers.html视图，将用户姓名渲染为跳转并传递ID参数的超链接。
+扩展listteachers.html视图，将用户姓名渲染为跳转并传递ID参数的超链接。
 移除默认ISO时间中的分隔符`T`。
