@@ -33,7 +33,7 @@
 图片视频等多媒体资源，以外链形式引用，减少打包体积。
 
 参考网站  
-[https://www.boqii.com/]([https://www.boqii.com/](https://www.boqii.com/))  
-[https://www.dazzlingstar.net/ ]([https://www.boqii.com/](https://www.boqii.com/))  
-[https://supertails.com/ ]([https://www.boqii.com/](https://www.boqii.com/))   
-[https://www.chewy.com/ ]([https://www.boqii.com/](https://www.boqii.com/)) 
+[https://www.boqii.com/](https://www.boqii.com/)  
+[https://www.dazzlingstar.net/](https://www.boqii.com/)  
+[https://supertails.com/](https://www.boqii.com/)   
+[https://www.chewy.com/](https://www.boqii.com/) 
